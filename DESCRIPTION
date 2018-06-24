@@ -1,0 +1,12 @@
+Package: fda.oce
+Type: Package
+Title: Oceanography Functional Data Analysis.
+Version: 0.1.0
+Depends: fda, fields, mapdata, MASS, rgl
+Author: Etienne Pauthenet, David Nerini
+Maintainer: Etienne Pauthenet <etienne.pauthenet@gmail.com>
+Description: Series of functional data analysis tools for classification of oceanographic profiles.
+License: Just For Me
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
