@@ -25,7 +25,7 @@ The profiles can then be reconstructed with less PCs than the total number, remo
 reco(pca,te)
 ```
 
-And we can project any other profile on the modes computed with a climatology (here a subset of GLORYS 12-2015). For example we fitted Bsplines on the WOCE section i06s and store it in a RData. Now we load it and project it on the GLORYS modes :
+And we can project any other profile on the modes computed with a climatology (here a subset of GLORYS 12-2015). For example we fitted Bsplines on the WOCE section i06s (available here : https://www.nodc.noaa.gov/woce/wdiu/) and store it in a RData. Now we load it and project it on the GLORYS modes :
 
 ``` r
 load("i06s_1000m40BS.RData")
@@ -43,7 +43,7 @@ for (te in 1:4){
 ```
 ![alt text](https://github.com/EPauthenet/fda.oce/blob/master/GLO_PCmap.png)
 
-We can also make a kernel density estimation of the PC, here PC1 against PC2, with the section WOCE i06s in red :
+We can also make a kernel density estimation (KDE) of the PC, here PC1 against PC2, with the section WOCE i06s in red :
 
 ``` r
 kde_pc(pca, te = c(1, 2))
