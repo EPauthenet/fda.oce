@@ -51,7 +51,7 @@ points(Npc[,1:2],col = 2,pch = "+")
 legend("topright",legend = "section WOCE i06s",pch = "+",col = 2)
 ```
 
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/GLO_kde.png" alt="drawing" width="500px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/GLO_pca.png" alt="drawing" width="500px"/>
 
 
 
