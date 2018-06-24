@@ -25,7 +25,7 @@ The profiles can then be reconstructed with less PCs than the total number, remo
 reco(pca,te)
 ```
 
-And we can project any other profile on the modes computed with a climatology (here a subset of GLORYS 12-2015). For example here is the WOCE section i06s :
+And we can project any other profile on the modes computed with a climatology (here a subset of GLORYS 12-2015). For example we fitted Bsplines on the WOCE section i06s and store it in a RData. Now we load it and project it on the GLORYS modes :
 
 ``` r
 load("i06s_1000m40BS.RData")
