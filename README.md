@@ -40,10 +40,10 @@ for (te in 1:4){
   eigenf(pca,te)
 }
 ```
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen1.png" alt="drawing" width="500px"/>
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen2.png" alt="drawing" width="500px"/>
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen3.png" alt="drawing" width="500px"/>
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen4.png" alt="drawing" width="500px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen1.png" alt="drawing" width="250px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen2.png" alt="drawing" width="250px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen3.png" alt="drawing" width="250px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen4.png" alt="drawing" width="250px"/>
 
 
 We can plot the PC in space, here are the 4 first :
