@@ -2,7 +2,7 @@
 % Please edit documentation in R/proj.R
 \name{proj}
 \alias{proj}
-\title{Projection of T-S profiles}
+\title{Projection of Temperature and Salinity profiles}
 \usage{
 proj(temp.fd, sal.fd, pca)
 }
@@ -17,7 +17,7 @@ proj(temp.fd, sal.fd, pca)
 \code{Npc} The principal components of the profiles \code{temp.fd} and \code{sal.fd} projected on the modes contained in \code{pca}.
 }
 \description{
-Projection of any temperature and salinity (T-S) profiles on a chosen basis. It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{myb} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{mybn}).
+Projection of any Temperature and Salinity (T-S) profiles on a chosen basis. It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{myb} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{mybn}).
 }
 \references{
 Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.

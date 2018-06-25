@@ -2,7 +2,7 @@
 % Please edit documentation in R/kde_pc.R
 \name{kde_pc}
 \alias{kde_pc}
-\title{Kernel density plot of two Principal Components (PCs)}
+\title{Kernel Density Estimation of two Principal Components}
 \usage{
 kde_pc(pca, te = c(1, 2), h = 0.2, n = 50, l = seq(0.1, 4, 0.2),
   title = "")
@@ -22,7 +22,7 @@ kde_pc(pca, te = c(1, 2), h = 0.2, n = 50, l = seq(0.1, 4, 0.2),
 A kernel density plot of two PCs i.e. a 2D boxplot.
 }
 \description{
-Produce a kernel density estimation plot of two PCs (using \code{kde2d {MASS}}), on the axis are the percentage of explained variance of each PC (pca$pval).
+Produce a Kernel Density Estimation (KDE) plot of two Principal Components (PCs) (using \code{kde2d {MASS}}), on the axis are the percentage of explained variance of each PC (pca$pval).
 }
 \details{
 This function is made to be modified at will, to add contours, change colors etc...

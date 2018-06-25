@@ -2,7 +2,7 @@
 % Please edit documentation in R/bspl.R
 \name{bspl}
 \alias{bspl}
-\title{Fit of B-splines on Temperature and Salinity (T-S) profiles}
+\title{Fit of B-splines on Temperature and Salinity profiles}
 \usage{
 bspl(temp, sal, Depth, range, mybn = 20, l = 100, interp = FALSE)
 }
@@ -29,7 +29,7 @@ bspl(temp, sal, Depth, range, mybn = 20, l = 100, interp = FALSE)
 \code{mask} : if the data was on a regular horizontal grid
 }
 \description{
-Fit B-splines on T-S profiles from gridded dataset (reanalysis, models,...) or in-situ observations (ARGO, MEOP,...)
+Fit B-splines on Temperature and Salinity (T-S) profiles from gridded dataset (reanalysis, models,...) or in-situ observations (ARGO, MEOP,...)
 }
 \seealso{
 \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...

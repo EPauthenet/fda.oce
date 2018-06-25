@@ -2,7 +2,7 @@
 % Please edit documentation in R/reco.R
 \name{reco}
 \alias{reco}
-\title{Reconstruction of Temperature and Salinity (T-S) profiles}
+\title{Reconstruction of Temperature and Salinity profiles}
 \usage{
 reco(pca, te)
 }
@@ -15,7 +15,7 @@ reco(pca, te)
 \code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the numer of PCs \code{te}.
 }
 \description{
-Reconstruction of T-S profiles with a chosen number of Principal Components (PCs).
+Reconstruction of Temperature and Salinity (T-S) profiles with a chosen number of Principal Components (PCs).
 }
 \references{
 Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_pc.R
 \name{map_pc}
 \alias{map_pc}
-\title{Map of Principal Component (PC)}
+\title{Map of Principal Component}
 \usage{
 map_pc(lon, lat, pca, mask, te, sign = 1)
 }
@@ -21,7 +21,7 @@ map_pc(lon, lat, pca, mask, te, sign = 1)
 A color map of the PC.
 }
 \description{
-Produce a map of PC, with the colorbar centered in zero, the coastline, the percentage of explained variance associated with the PC (pca$pval).
+Produce a map of Principal Component (PC), with the colorbar centered in zero, the coastline, the percentage of explained variance associated with the PC (pca$pval).
 }
 \details{
 This function is made to be modified at will, to add contours, change colors etc...
