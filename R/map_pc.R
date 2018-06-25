@@ -1,6 +1,6 @@
-#' Plot of a map of PC
+#' Map of PC
 #'
-#' Produce a map of PC (using \code{image.plot {fields}}), with the colorbar centered in zero, the land (using \code{map {mapdata}}), the percentage of explained variance associated with the PC (pca$pval).
+#' Produce a map of PC, with the colorbar centered in zero, the coastline, the percentage of explained variance associated with the PC (pca$pval).
 #'
 #' This function is made to be modified at will, to add contours, change colors etc...
 #'

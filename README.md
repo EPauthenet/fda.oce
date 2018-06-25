@@ -10,7 +10,7 @@ Installation of the package using devtools :
 ``` r
 install.packages("devtools")
 devtools::install_github("Epauthenet/fda.oce")
-??fda.oce
+help(package = fda.oce)
 ```
 
 # Demo
