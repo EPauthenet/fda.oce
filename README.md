@@ -5,13 +5,10 @@
 *Reference*: 
 - Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
 
-The package is still under construction but the R codes can be used. It requires these R packages :
+Installation of the package using devtools :
 ``` r
-require(fda)
-require(fields) 
-require(mapdata)
-require(MASS)
-require(rgl)
+install.packages("devtools")
+devtools::install_github("Epauthenet/fda.oce")
 ```
 
 # Demo
