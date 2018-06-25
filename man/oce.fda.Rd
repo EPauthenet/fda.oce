@@ -34,5 +34,5 @@ Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohalin
 Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \author{
-Etienne Pauthenet \code{<etienne.pauthenet@gmail.com>}, David Nerini
+Etienne Pauthenet \code{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}
 }
