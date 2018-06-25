@@ -24,7 +24,7 @@ fda.oce::bspl(temp,sal,depth,range = c(5,1000),mybn = 20)
 
 Then we apply the PCA on these Bsplines :
 ``` r
-fda.oce::fpca(temp.fd,sal.fd,plot = T)
+fda.oce::fpca(temp.fd,sal.fd)
 ```
 
 The profiles can then be reconstructed with less PCs than the total number, removing the samll variability :
