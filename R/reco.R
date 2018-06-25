@@ -1,6 +1,6 @@
-#' Reconstruction of Temperature and Salinity (T-S) profiles
+#' Reconstruction of Temperature and Salinity profiles
 #'
-#' Reconstruction of T-S profiles with a chosen number of Principal Components (PCs).
+#' Reconstruction of Temperature and Salinity (T-S) profiles with a chosen number of Principal Components (PCs).
 #'
 
 #' @param pca list produced by the function \code{fpca}

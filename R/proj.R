@@ -1,6 +1,6 @@
-#' Projection of T-S profiles
+#' Projection of Temperature and Salinity profiles
 #'
-#' Projection of any temperature and salinity (T-S) profiles on a chosen basis. It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{myb} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{mybn}).
+#' Projection of any Temperature and Salinity (T-S) profiles on a chosen basis. It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{myb} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{mybn}).
 #'
 
 #' @param temp.fd,sal.fd fd objects (list) of the T-S profile(s) to project. This is produced by the function \code{bspl}.

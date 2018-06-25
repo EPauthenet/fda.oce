@@ -1,6 +1,6 @@
-#' Fit of B-splines on Temperature and Salinity (T-S) profiles
+#' Fit of B-splines on Temperature and Salinity profiles
 #'
-#' Fit B-splines on T-S profiles from gridded dataset (reanalysis, models,...) or in-situ observations (ARGO, MEOP,...)
+#' Fit B-splines on Temperature and Salinity (T-S) profiles from gridded dataset (reanalysis, models,...) or in-situ observations (ARGO, MEOP,...)
 
 #' @param temp temperature stored in arrays \code{ind*depth} or \code{lon*lat*depth} or \code{lon*lat*depth*time}
 #' @param sal salinity stored in arrays \code{lon*lat*depth} or \code{lon*lat*depth*time}

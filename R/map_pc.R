@@ -1,6 +1,6 @@
-#' Map of Principal Component (PC)
+#' Map of Principal Component
 #'
-#' Produce a map of PC, with the colorbar centered in zero, the coastline, the percentage of explained variance associated with the PC (pca$pval).
+#' Produce a map of Principal Component (PC), with the colorbar centered in zero, the coastline, the percentage of explained variance associated with the PC (pca$pval).
 #'
 #' This function is made to be modified at will, to add contours, change colors etc...
 #'
