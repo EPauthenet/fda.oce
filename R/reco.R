@@ -1,4 +1,4 @@
-#' Reconstruction of T-S profiles
+#' Reconstruction of Temperature and Salinity (T-S) profiles
 #'
 #' Reconstruction of T-S profiles with a chosen number of Principal Components (PCs).
 #'

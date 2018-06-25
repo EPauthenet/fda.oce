@@ -1,6 +1,6 @@
-#' Plot of the eigenfunctions
+#' Plot of the vertical modes
 #'
-#' Plot the effect of each eigenfunction on the mean T-S profile.
+#' Plot the effect of each vertical mode (i. e. eigenfunction) on the mean Temperature and Salinity (T-S) profile.
 #'
 #'
 #' @param pca the list produced by the function \code{fpca}.

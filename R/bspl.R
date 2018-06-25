@@ -1,4 +1,4 @@
-#' Fit of B-splines on temperature and salinity profiles
+#' Fit of B-splines on Temperature and Salinity (T-S) profiles
 #'
 #' Fit B-splines on T-S profiles from gridded dataset (reanalysis, models,...) or in-situ observations (ARGO, MEOP,...)
 

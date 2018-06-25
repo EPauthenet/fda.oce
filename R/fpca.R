@@ -1,4 +1,4 @@
-#' Functional Principal Component Analysis (FPCA) of T-S profiles
+#' Functional Principal Component Analysis (FPCA) of Temperature and Salinity (T-S) profiles
 #'
 #' FPCA in the multivariate case, applied on T-S profiles seen as curves (Bsplines)
 #'

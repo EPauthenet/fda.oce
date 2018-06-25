@@ -1,4 +1,4 @@
-#' Kernel density plot of two PCs
+#' Kernel density plot of two Principal Components (PCs)
 #'
 #' Produce a kernel density estimation plot of two PCs (using \code{kde2d {MASS}}), on the axis are the percentage of explained variance of each PC (pca$pval).
 #'
