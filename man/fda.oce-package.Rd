@@ -6,7 +6,7 @@
 \alias{fda.oce-package}
 \title{fda.oce: A package for the use of functional data analysis tools on oceanographic profiles.}
 \description{
-The \pkg{fda.oce} package provides a serie of function to analyze the variability in a field of temperature and salinity, as described by Pauthenet et al. (2017).
+The \pkg{fda.oce} package provides a serie of functions companion to Pauthenet et al. (2017), to analyze the variability in a field of temperature and salinity.
 }
 \section{Functions }{
 
@@ -34,5 +34,5 @@ Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohalin
 Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \author{
-Etienne Pauthenet, David Nerini
+Etienne Pauthenet \code{<etienne.pauthenet@gmail.com>}, David Nerini
 }

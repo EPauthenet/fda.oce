@@ -1,6 +1,6 @@
 #' fda.oce: A package for the use of functional data analysis tools on oceanographic profiles.
 #'
-#' The \pkg{fda.oce} package provides a serie of function to analyze the variability in a field of temperature and salinity, as described by Pauthenet et al. (2017).
+#' The \pkg{fda.oce} package provides a serie of functions companion to Pauthenet et al. (2017), to analyze the variability in a field of temperature and salinity.
 #'
 #' @section Functions :
 #' \code{bspl} : functions to see temperature and salinity (T-S) profiles as curves (Bsplines)
@@ -18,11 +18,10 @@
 #'
 #' \code{kde_pc} : Kernel density estimation of two PCs
 #'
-#' @author Etienne Pauthenet, David Nerini
+#' @author Etienne Pauthenet \code{<etienne.pauthenet@gmail.com>}, David Nerini
 #'
 #'
 #'
 #' @references Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
 #' @references Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
-#'
 "_PACKAGE"

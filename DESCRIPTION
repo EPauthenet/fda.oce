@@ -1,6 +1,6 @@
 Package: fda.oce
 Type: Package
-Title: Oceanography Functional Data Analysis.
+Title: Functional Data Analysis of Oceanographic Profiles.
 Version: 0.1.0
 Depends: fda, fields, mapdata, MASS, rgl
 Author: Etienne Pauthenet, David Nerini
