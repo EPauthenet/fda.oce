@@ -2,11 +2,17 @@
 
 **Functional Data Analysis** is an emerging set of tools to study curves or functions. Here we see vertical profiles of temperature (T) and salinity (S) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case (T and S) to reduce the dimensionality of the system. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, ...
 
-The package is still under construction but the R codes can be used.
-
 *Reference*: 
 - Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
 
+The package is still under construction but the R codes can be used. It requires these R packages :
+``` r
+require(fda)
+require(fields) 
+require(mapdata)
+require(MASS)
+require(rgl)
+```
 
 # Example
 Here is an example of how to use these functions. We compute the modes for a subsample (given here in a RData) of GLORYS in the Southern Ocean for December of 2015. The full resolution data ((mercatorglorys2v4_gl4_mean_201512.nc) is available here http://marine.copernicus.eu/services-portfolio/access-to-products/ .
