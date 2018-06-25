@@ -17,6 +17,7 @@
 #'
 #' @seealso \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
 
+#' @export
 bspl <- function(temp,sal,Depth,range,mybn = 20,l = 100,interp = FALSE){
   dmin <- range[1]
   dmax <- range[2]
@@ -83,8 +84,8 @@ bspl <- function(temp,sal,Depth,range,mybn = 20,l = 100,interp = FALSE){
       }
     }
 
-    Tfd <- eval.fd(profx,temp.fd)
-    Sfd <- eval.fd(profx,sal.fd)
+    Tfd <- fda::eval.fd(profx,temp.fd)
+    Sfd <- fda::eval.fd(profx,sal.fd)
 
     if (length(dim(temp))==3){
       mask = matrix(NaN,n,m)

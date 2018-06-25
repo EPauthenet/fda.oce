@@ -13,26 +13,27 @@
 #'
 #' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} FPCA of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
 
+#' @export
 proj <- function(temp.fd,sal.fd,pca){
   mybn  <- pca$nbasis
-  myb   <- create.bspline.basis(c(pca$range[1],pca$range[2]),mybn)
-  Cm = pca$Cm
+  myb   <- fda::create.bspline.basis(c(pca$range[1],pca$range[2]),mybn)
+  Cm    <- pca$Cm
 
   #Metric M
-  M=c(rep(1/pca$inerT,mybn),rep(1/pca$inerS,mybn))
-  Mdem=diag(sqrt(M))
-  Mdeminv=diag(1/sqrt(M))
-  M=Mdem^2
+  M       <- c(rep(1/pca$inerT,mybn),rep(1/pca$inerS,mybn))
+  Mdem    <- diag(sqrt(M))
+  Mdeminv <- diag(1/sqrt(M))
+  M       <- Mdem^2
 
   #Metric W
-  W=eval.penalty(myb)
-  nul=matrix(0,mybn,mybn)
-  W=cbind(rbind(W,nul),rbind(nul,W))
-  W=(W+t(W))/2
+  W   <- fda::eval.penalty(myb)
+  nul <- matrix(0,mybn,mybn)
+  W   <- cbind(rbind(W,nul),rbind(nul,W))
+  W   <- (W+t(W))/2
 
   #Combine T and S and substract the mean of the modes to project on
-  C=cbind(t(temp.fd$coefs),t(sal.fd$coefs))
-  Cc=sweep(C,2,Cm,"-")
+  C  <- cbind(t(temp.fd$coefs),t(sal.fd$coefs))
+  Cc <- sweep(C,2,Cm,"-")
 
   Npc<<-Cc%*%t(W)%*%M%*%pca$vectors
 }

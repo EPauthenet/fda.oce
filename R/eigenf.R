@@ -16,6 +16,7 @@
 #'
 #' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{PCmap}} for plotting a map of PC
 
+#' @export
 eigenf <- function(pca,te,le = 50,sign = 1){
   if(length(sign)>1){
     s <- sign[te]
@@ -23,7 +24,7 @@ eigenf <- function(pca,te,le = 50,sign = 1){
   mybn <- pca$nbasis
   dmin <- pca$range[1]
   dmax <- pca$range[2]
-  myb  <- create.bspline.basis(c(dmin,dmax),mybn)
+  myb  <- fda::create.bspline.basis(c(dmin,dmax),mybn)
   Cm   <- pca$Cm
 
   #Percentage of the bloc
@@ -31,7 +32,7 @@ eigenf <- function(pca,te,le = 50,sign = 1){
   profx <- seq(dmin,dmax,length=le)
 
   #initialize two fd objects
-  a.fd <- Data2fd(dmin:dmax,rep(1,length(dmin:dmax)),myb)
+  a.fd <- fda::Data2fd(dmin:dmax,rep(1,length(dmin:dmax)),myb)
   t.fd <- a.fd
 
   # Temperature [1:mybn,1]
@@ -39,9 +40,9 @@ eigenf <- function(pca,te,le = 50,sign = 1){
   t.fd$coefs = Cm[1:mybn]
   vpl        = (mean(temp.fd)+s*a.fd)
   vmo        = (mean(temp.fd)-s*a.fd)
-  vplus      = eval.fd(seq(dmin,dmax,length=le),vpl)
-  vmoins     = eval.fd(seq(dmin,dmax,length=le),vmo)
-  Tm         = eval.fd(seq(dmin,dmax,length=le),t.fd)
+  vplus      = fda::eval.fd(seq(dmin,dmax,length=le),vpl)
+  vmoins     = fda::eval.fd(seq(dmin,dmax,length=le),vmo)
+  Tm         = fda::eval.fd(seq(dmin,dmax,length=le),t.fd)
 
   par(mfrow=c(1,2), oma = c(0,0,2,0), mar=c(4.1,4.1,0.5,0.35))
   plot(Tm,profx,typ = 'l'
@@ -56,9 +57,9 @@ eigenf <- function(pca,te,le = 50,sign = 1){
   t.fd$coefs = Cm[(mybn+1):(2*mybn)]
   vpl        = (mean(sal.fd)+s*a.fd)
   vmo        = (mean(sal.fd)-s*a.fd)
-  vplus      = eval.fd(seq(dmin,dmax,length=le),vpl)
-  vmoins     = eval.fd(seq(dmin,dmax,length=le),vmo)
-  Sm         = eval.fd(seq(dmin,dmax,length=le),t.fd)
+  vplus      = fda::eval.fd(seq(dmin,dmax,length=le),vpl)
+  vmoins     = fda::eval.fd(seq(dmin,dmax,length=le),vmo)
+  Sm         = fda::eval.fd(seq(dmin,dmax,length=le),t.fd)
 
   par(mar=c(4.1,0.35,0.5,4.1))
   plot(Sm,profx,typ = 'l',axes = F

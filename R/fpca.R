@@ -2,7 +2,6 @@
 #'
 #' FPCA in the multivariate case, applied on T-S profiles seen as curves (Bsplines)
 #'
-
 #' @param temp.fd,sal.fd fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.
 #' @param plot,plot3d if TRUE, plot the first two or three PCs.
 
@@ -12,12 +11,13 @@
 #'
 #' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
 
+#' @export
 fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
   mybn  <- length(temp.fd$coefs[,1])
   dmin  <- temp.fd$basis$rangeval[1]
   dmax  <- temp.fd$basis$rangeval[2]
   nobs  <- dim(temp.fd$coefs)[2]
-  myb   <- create.bspline.basis(c(dmin,dmax),mybn)
+  myb   <- fda::create.bspline.basis(c(dmin,dmax),mybn)
   depth <- dmin:dmax
 
   C  <- cbind(t(temp.fd$coefs),t(sal.fd$coefs))
@@ -25,14 +25,14 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
   Cc <- sweep(C,2,Cm,"-")
 
   #Inertia
-  metric <- eval.penalty(myb)
+  metric <- fda::eval.penalty(myb)
   VT     <- 1/nobs*t(Cc[,1:20])%*%Cc[,1:20]%*%metric
   inerT  <- sum(diag(VT))
-  VS    <- 1/nobs*t(Cc[,21:40])%*%Cc[,21:40]%*%metric
-  inerS <- sum(diag(VS))
+  VS     <- 1/nobs*t(Cc[,21:40])%*%Cc[,21:40]%*%metric
+  inerS  <- sum(diag(VS))
 
   #Metric W
-  W       <- eval.penalty(myb)
+  W       <- fda::eval.penalty(myb)
   nul     <- matrix(0,mybn,mybn)
   W       <- cbind(rbind(W,nul),rbind(nul,W))
   W       <- (W+t(W))/2
@@ -92,7 +92,7 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
     abline(v=0,h=0,lty=3)
   }
   if (plot3d == TRUE){
-    plot3d(pca$pc[,1:3],xlab=paste("PC1 (",pca$pval[1]," %)")
+    rgl::plot3d(pca$pc[,1:3],xlab=paste("PC1 (",pca$pval[1]," %)")
       ,ylab=paste("PC2 (",pca$pval[2]," %)")
       ,zlab=paste("PC3 (",pca$pval[3]," %)"),col = 1,pch = 20)
   }

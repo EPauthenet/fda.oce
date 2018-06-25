@@ -12,12 +12,13 @@
 #'
 #' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} FPCA of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
 
+#' @export
 reco <- function(pca,te){
   dmin  <- pca$rangeval[1]
   dmax  <- pca$rangeval[2]
   mybn  <- pca$nbasis
-  myb   <- create.bspline.basis(c(dmin,dmax),mybn)
-  phi   <- eval.basis(myb,depth)
+  myb   <- fda::create.bspline.basis(c(dmin,dmax),mybn)
+  phi   <- fda::eval.basis(myb,depth)
   nobs  <- dim(pca$pc)[1]
   depth <- dmin:dmax
 

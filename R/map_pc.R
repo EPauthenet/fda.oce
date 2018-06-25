@@ -15,7 +15,7 @@
 #'
 #' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} for functional principal component analysis of T-S profiles,...
 
-
+#' @export
 map_pc <- function(lon,lat,pca,mask,te,sign = 1){
   if(length(sign)>1){
     s <- sign[te]
@@ -24,13 +24,13 @@ map_pc <- function(lon,lat,pca,mask,te,sign = 1){
   PC                 <- mask
   PC[which(mask==1)] <- pca$pc[,te]*s
 
-  colo <- designer.colors(n=length(PC), col= c("darkblue","blue","skyblue2", "white","darkorange","red", "darkred"),alpha=1)
+  colo <- fields::designer.colors(n=length(PC), col= c("darkblue","blue","skyblue2", "white","darkorange","red", "darkred"),alpha=1)
   zz   <- c(-max(abs(PC),na.rm = TRUE),max(abs(PC),na.rm = TRUE))
 
-  image.plot(lon,lat,PC,zlim = zz,col = colo,las = 1,xaxs = "i",yaxs = "i"
+  fields::image.plot(lon,lat,PC,zlim = zz,col = colo,las = 1,xaxs = "i",yaxs = "i"
     ,main = paste('PC',te," (",pca$pval[te]," %)",sep = "")
     ,ylab = 'Longitude'
     ,xlab = 'Latitude')
-  map(add = T,fill = T,col = "black")
+  maps::map(add = T,fill = T,col = "black")
   contour(lon,lat,PC,add = TRUE)
 }
