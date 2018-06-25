@@ -34,6 +34,18 @@ proj(ti06.fd,si06.fd,pca)
 
 
 # Visual representation
+We can plot the effects of the vertical modes on temperature and salinity mean profiles :
+``` r
+for (te in 1:4){
+  eigenf(pca,te)
+}
+```
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen1.png" alt="drawing" width="500px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen2.png" alt="drawing" width="500px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen3.png" alt="drawing" width="500px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen4.png" alt="drawing" width="500px"/>
+
+
 We can plot the PC in space, here are the 4 first :
 ``` r
 par(mfrow = c(2,2),mar = c(1,3,3,3))
@@ -41,7 +53,7 @@ for (te in 1:4){
   map_pc(lon,lat,pca,mask,te)
 }
 ```
-![alt text](https://github.com/EPauthenet/fda.oce/blob/master/GLO_PCmap.png)
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_PCmap.png" alt="drawing" width="1000px"/>
 
 We can also make a kernel density estimation (KDE) of the PC, here PC1 against PC2, with the section WOCE i06s in red :
 
@@ -51,7 +63,7 @@ points(Npc[,1:2],col = 2,pch = "+")
 legend("topright",legend = "section WOCE i06s",pch = "+",col = 2)
 ```
 
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/GLO_pca.png" alt="drawing" width="1000px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_pca.png" alt="drawing" width="1000px"/>
 
 
 
