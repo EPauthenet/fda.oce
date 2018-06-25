@@ -1,12 +1,20 @@
 Package: fda.oce
-Type: Package
-Title: Functional Data Analysis of Oceanographic Profiles.
 Version: 0.1.0
-Depends: fda, fields, mapdata, MASS, rgl
-Author: Etienne Pauthenet, David Nerini
-Maintainer: Etienne Pauthenet <etienne.pauthenet@gmail.com>
+Title: Functional Data Analysis of Oceanographic Profiles.
 Description: Series of functional data analysis tools for classification of oceanographic profiles.
+Author@R:     
+  c(person("Etienne", "Pauthenet", ,"etienne.pauthenet@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0531-3810")),
+    person("David"  , "Nerini",                                   , role = "aut"          , comment = c(ORCID = "0000-0002-7995-1364")))
+Depends: 
+  R (>= 3.1.2)
+Imports: 
+  fda, 
+  fields, 
+  mapdata, 
+  MASS, 
+  rgl
+Maintainer: Etienne Pauthenet <etienne.pauthenet@gmail.com>
 License: GNU General Public License v3.0
 Encoding: UTF-8
-LazyData: true
+LazyData: yes
 RoxygenNote: 6.0.1
