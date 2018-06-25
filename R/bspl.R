@@ -19,6 +19,7 @@
 
 #' @export
 bspl <- function(temp,sal,Depth,range,mybn = 20,l = 100,interp = FALSE){
+  cat("Converting the profiles into Bsplines...")
   dmin <- range[1]
   dmax <- range[2]
   profx <- seq(dmin,dmax,length = l)
