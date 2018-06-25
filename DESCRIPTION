@@ -6,7 +6,7 @@ Author@R:
   c(person("Etienne", "Pauthenet", ,"etienne.pauthenet@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0531-3810")),
     person("David"  , "Nerini",                                   , role = "aut"          , comment = c(ORCID = "0000-0002-7995-1364")))
 Depends: 
-  R (>= 3.1.2)
+  R (>= 3.3.1)
 Imports: 
   fda, 
   fields, 
