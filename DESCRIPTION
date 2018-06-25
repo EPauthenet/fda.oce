@@ -1,7 +1,8 @@
 Package: fda.oce
 Title: Functional Data Analysis of oceanographic profiles.
 Version: 0.1.0
-Authors@R: person("Etienne", "Pauthenet", email = "etienne.pauthenet@gmail.com", role = c("aut", "cre"))
+Authors: Etienne Pauthenet and David nerini
+Maintainer: Etienne Pauthenet <etienne.pauthenet@gmail.com>
 Description: Serie of functional data analysis tools for classification of oceanographic profiles.
 Depends: R (>= 3.3.3)
 Imports: fda, fields, rgl, MASS, maps
