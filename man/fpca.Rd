@@ -2,7 +2,7 @@
 % Please edit documentation in R/fpca.R
 \name{fpca}
 \alias{fpca}
-\title{Functional Principal Component Analysis (FPCA) of T-S profiles}
+\title{Functional Principal Component Analysis (FPCA) of Temperature and Salinity (T-S) profiles}
 \usage{
 fpca(temp.fd, sal.fd, plot = FALSE, plot3d = FALSE)
 }

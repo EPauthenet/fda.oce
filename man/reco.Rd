@@ -2,7 +2,7 @@
 % Please edit documentation in R/reco.R
 \name{reco}
 \alias{reco}
-\title{Reconstruction of T-S profiles}
+\title{Reconstruction of Temperature and Salinity (T-S) profiles}
 \usage{
 reco(pca, te)
 }

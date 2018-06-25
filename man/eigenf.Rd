@@ -2,7 +2,7 @@
 % Please edit documentation in R/eigenf.R
 \name{eigenf}
 \alias{eigenf}
-\title{Plot of the eigenfunctions}
+\title{Plot of the vertical modes}
 \usage{
 eigenf(pca, te, le = 50, sign = 1)
 }
@@ -19,7 +19,7 @@ eigenf(pca, te, le = 50, sign = 1)
 Representation of the effects of the vertical mode \code{te} on temperature and salinity mean profiles. The curves show the mean profile (solid) and the effects of adding (+) and subtracting (-) eigenfunctions. The percentages next to the header titles are the amount of variance explained by the mode displayed. The percentages in the horizontal axis label are the variance contained by each variable (T and S) on the mode displayed. \code{sign} can be used as a factor to enhance the deformation of + and - curves.
 }
 \description{
-Plot the effect of each eigenfunction on the mean T-S profile.
+Plot the effect of each vertical mode (i. e. eigenfunction) on the mean Temperature and Salinity (T-S) profile.
 }
 \references{
 Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.

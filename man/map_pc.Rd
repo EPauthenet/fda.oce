@@ -2,7 +2,7 @@
 % Please edit documentation in R/map_pc.R
 \name{map_pc}
 \alias{map_pc}
-\title{Map of PC}
+\title{Map of Principal Component (PC)}
 \usage{
 map_pc(lon, lat, pca, mask, te, sign = 1)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/bspl.R
 \name{bspl}
 \alias{bspl}
-\title{Fit of B-splines on temperature and salinity profiles}
+\title{Fit of B-splines on Temperature and Salinity (T-S) profiles}
 \usage{
 bspl(temp, sal, Depth, range, mybn = 20, l = 100, interp = FALSE)
 }
