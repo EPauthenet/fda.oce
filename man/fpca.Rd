@@ -2,7 +2,7 @@
 % Please edit documentation in R/fpca.R
 \name{fpca}
 \alias{fpca}
-\title{Functional Principal Component Analysis (FPCA) of Temperature and Salinity (T-S) profiles}
+\title{Functional Principal Component Analysis of Temperature and Salinity profiles}
 \usage{
 fpca(temp.fd, sal.fd, plot = FALSE, plot3d = FALSE)
 }
@@ -15,7 +15,7 @@ fpca(temp.fd, sal.fd, plot = FALSE, plot3d = FALSE)
 \code{pca} list containing the eigen (\code{values}), eigen (\code{vectors}), eigen vectors not weighted by WM (\code{vecnotWM}), principal components (\code{pc}), deformation induced by an axis (\code{axe}) percentage of each axis (\code{pval}).
 }
 \description{
-FPCA in the multivariate case, applied on T-S profiles seen as curves (Bsplines)
+Functional Principal Component Analysis (FPCA) in the multivariate case, applied on Temperature and Salinity (T-S) profiles seen as curves (Bsplines)
 }
 \references{
 Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.

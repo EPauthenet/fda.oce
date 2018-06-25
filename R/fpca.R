@@ -1,6 +1,6 @@
-#' Functional Principal Component Analysis (FPCA) of Temperature and Salinity (T-S) profiles
+#' Functional Principal Component Analysis of Temperature and Salinity profiles
 #'
-#' FPCA in the multivariate case, applied on T-S profiles seen as curves (Bsplines)
+#' Functional Principal Component Analysis (FPCA) in the multivariate case, applied on Temperature and Salinity (T-S) profiles seen as curves (Bsplines)
 #'
 #' @param temp.fd,sal.fd fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.
 #' @param plot,plot3d if TRUE, plot the first two or three PCs.
