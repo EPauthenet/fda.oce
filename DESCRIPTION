@@ -1,20 +1,13 @@
 Package: fda.oce
+Type: Package
+Title: Functional Data Analysis of oceanographic profiles.
 Version: 0.1.0
-Title: Functional Data Analysis of Oceanographic Profiles.
-Description: Series of functional data analysis tools for classification of oceanographic profiles.
-Author@R:     
-  c(person("Etienne", "Pauthenet", ,"etienne.pauthenet@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0531-3810")),
-    person("David"  , "Nerini",                                   , role = "aut"          , comment = c(ORCID = "0000-0002-7995-1364")))
-Depends: 
-  R (>= 3.3.1)
-Imports: 
-  fda, 
-  fields, 
-  mapdata, 
-  MASS, 
-  rgl
+Depends: fda, rgl, fields, maps, MASS, 
+Author: Etienne Pauthenet
 Maintainer: Etienne Pauthenet <etienne.pauthenet@gmail.com>
-License: GNU General Public License v3.0
+Description: Treat oceanographic profiles as functions and handle them in the
+    space of Principal Components decomposition.
+License: Just For Me
 Encoding: UTF-8
-LazyData: yes
-RoxygenNote: 6.0.1
+LazyData: true
+RoxygenNote: 5.0.1

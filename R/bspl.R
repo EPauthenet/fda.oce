@@ -57,11 +57,11 @@ bspl <- function(temp,sal,Depth,range,mybn = 20,l = 100,interp = FALSE){
     s <- Sm[,k]
 
     # Calcule les splines du profil 1
-    myb     <- create.bspline.basis(c(dmin,dmax),mybn)
+    myb     <- fda::create.bspline.basis(c(dmin,dmax),mybn)
     templ   <- approx(depth,t,method = 'linear',xout = profx)$y
-    temp.fd <- Data2fd(profx,templ,myb)
+    temp.fd <- fda::Data2fd(profx,templ,myb)
     sall    <- approx(depth,s,method = 'linear',xout = profx)$y
-    sal.fd  <- Data2fd(profx,sall,myb)
+    sal.fd  <- fda::Data2fd(profx,sall,myb)
     ind <- k
 
     for (k in which(is.na(Tm[dm,])==FALSE)[2]:dim(Tm)[2]){  #In case of NaN in the matrix (land)
@@ -74,9 +74,9 @@ bspl <- function(temp,sal,Depth,range,mybn = 20,l = 100,interp = FALSE){
           depth = Depth[,k]
         }
         templ         <- approx(depth,t,method = 'linear',xout = profx)$y
-        tmpt.fd       <- Data2fd(profx,templ,myb)
+        tmpt.fd       <- fda::Data2fd(profx,templ,myb)
         sall          <- approx(depth,s,method = 'linear',xout = profx)$y
-        tmps.fd       <- Data2fd(profx,sall,myb)
+        tmps.fd       <- fda::Data2fd(profx,sall,myb)
         temp.fd$coefs <- cbind(temp.fd$coefs,tmpt.fd$coefs)
         sal.fd$coefs  <- cbind(sal.fd$coefs,tmps.fd$coefs)
         ind <- c(ind,k)
@@ -109,23 +109,23 @@ bspl <- function(temp,sal,Depth,range,mybn = 20,l = 100,interp = FALSE){
     profx <- Depth[dmin:dmax]
 
     # Calcule les splines du profil 1
-    myb     <- create.bspline.basis(c(dmin,dmax),mybn)
-    temp.fd <- Data2fd(profx,t[dmin:dmax],myb)
-    sal.fd  <- Data2fd(profx,s[dmin:dmax],myb)
+    myb     <- fda::create.bspline.basis(c(dmin,dmax),mybn)
+    temp.fd <- fda::Data2fd(profx,t[dmin:dmax],myb)
+    sal.fd  <- fda::Data2fd(profx,s[dmin:dmax],myb)
     ind     <- k
 
     for (k in which(is.na(temp[dmax,])==FALSE)[2]:dim(temp)[2]){  #In case of NaN in the matrix
       t <- temp[,k]
       s <- sal[,k]
-      tmpt.fd       <- Data2fd(profx,t[dmin:dmax],myb)
-      tmps.fd       <- Data2fd(profx,s[dmin:dmax],myb)
+      tmpt.fd       <- fda::Data2fd(profx,t[dmin:dmax],myb)
+      tmps.fd       <- fda::Data2fd(profx,s[dmin:dmax],myb)
       temp.fd$coefs <- cbind(temp.fd$coefs,tmpt.fd$coefs)
       sal.fd$coefs  <- cbind(sal.fd$coefs,tmps.fd$coefs)
       ind = c(ind,k)
     }
 
-    Tfd <- eval.fd(profx,temp.fd)
-    Sfd <- eval.fd(profx,sal.fd)
+    Tfd <- fda::eval.fd(profx,temp.fd)
+    Sfd <- fda::eval.fd(profx,sal.fd)
 
     #Return
     BS        <<- list(ind,profx,Tfd,Sfd)
