@@ -18,24 +18,24 @@ Here is an example of how to use these functions. We compute the modes for a sub
 First we load the data and fit the Bsplines on the 1691 profiles of the example :
 ``` r
 load("GLORYS_2015-12_SO_sub10.RData")
-bspl(temp,sal,depth,range = c(5,1000),mybn = 20)
+fda.oce::bspl(temp,sal,depth,range = c(5,1000),mybn = 20)
 ```
 
 Then we apply the PCA on these Bsplines :
 ``` r
-fpca(temp.fd,sal.fd,plot = T)
+fda.oce::fpca(temp.fd,sal.fd,plot = T)
 ```
 
 The profiles can then be reconstructed with less PCs than the total number, removing the samll variability :
 ``` r
-reco(pca,te)
+fda.oce::reco(pca,te)
 ```
 
 And we can project any other profile on the modes computed with a climatology (here a subset of GLORYS 12-2015). For example we fitted Bsplines on the WOCE section i06s (available here : https://www.nodc.noaa.gov/woce/wdiu/) and store it in a RData. Now we load it and project it on the GLORYS modes :
 
 ``` r
 load("i06s_1000m40BS.RData")
-proj(ti06.fd,si06.fd,pca)
+fda.oce::proj(ti06.fd,si06.fd,pca)
 ```
 
 
@@ -43,7 +43,7 @@ proj(ti06.fd,si06.fd,pca)
 We can plot the effects of the vertical modes on temperature and salinity mean profiles :
 ``` r
 for (te in 1:4){
-  eigenf(pca,te)
+  fda.oce::eigenf(pca,te)
 }
 ```
 
@@ -55,7 +55,7 @@ We can plot the PC in space, here are the 4 first :
 ``` r
 par(mfrow = c(2,2),mar = c(1,3,3,3))
 for (te in 1:4){
-  map_pc(lon,lat,pca,mask,te)
+  fda.oce::map_pc(lon,lat,pca,mask,te)
 }
 ```
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_PCmap.png" alt="drawing" width="1000px"/>
@@ -63,7 +63,7 @@ for (te in 1:4){
 We can also make a kernel density estimation (KDE) of the PC, here PC1 against PC2, with the section WOCE i06s in red :
 
 ``` r
-kde_pc(pca, te = c(1, 2))
+fda.oce::kde_pc(pca, te = c(1, 2))
 points(Npc[,1:2],col = 2,pch = "+")
 legend("topright",legend = "section WOCE i06s",pch = "+",col = 2)
 ```
