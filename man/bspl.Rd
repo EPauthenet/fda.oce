@@ -4,7 +4,7 @@
 \alias{bspl}
 \title{Fit of B-splines on Temperature and Salinity profiles}
 \usage{
-bspl(temp, sal, Depth, range, mybn = 20, l = 100, interp = FALSE)
+bspl(temp, sal, Depth, range, mybn = 20, l = 100, irreg = 0)
 }
 \arguments{
 \item{temp}{temperature stored in arrays \code{ind*depth} or \code{lon*lat*depth} or \code{lon*lat*depth*time}}
@@ -17,7 +17,7 @@ bspl(temp, sal, Depth, range, mybn = 20, l = 100, interp = FALSE)
 
 \item{l}{number of interpolation point. The number of points to interpolate must be large enough to avoid overfitting. Default is l = 100.}
 
-\item{interp}{is TRUE if the data provided is already interpolated on a thin vertical grid (1 dbar by level). For example \code{DATA_ncARGO_interp} from MEOP.}
+\item{irreg}{default is 0 for irregular vertical sampling and regular horizontal sampling (model type e.g. SOSE, GLORYS,...). \code{irreg=1} for irregular vertical and horizontal sampling (e.g. \code{DATA_ncARGO} for MEOP). \code{irreg=2} for irregular horizontal sampling but interpolated on a thin vertical grid (1 dbar by level).(e.g. \code{DATA_ncARGO_interp} from MEOP).}
 
 \item{depth}{depth can be a vector or a matrix (case of irregular vertical sampling)}
 }
