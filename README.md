@@ -16,7 +16,7 @@ help(package = fda.oce)
 # Demo
 Here is an example of how to use these functions. We compute the modes for a subsample (given here in a RData) of GLORYS in the Southern Ocean for December of 2015. The full resolution data ((mercatorglorys2v4_gl4_mean_201512.nc) is available here http://marine.copernicus.eu/services-portfolio/access-to-products/ .
 
-First we load the data and fit the Bsplines on the 1691 profiles of the example :
+First we load the data and fit the Bsplines on the 1691 profiles of the example, between 5 and 1000m with 20 Bsplines :
 ``` r
 load("GLORYS_2015-12_SO_sub10.RData")
 fda.oce::bspl(temp,sal,depth,range = c(5,1000),mybn = 20)
