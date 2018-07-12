@@ -26,9 +26,9 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
 
   #Inertia
   metric <- fda::eval.penalty(myb)
-  VT     <- 1/nobs*t(Cc[,1:20])%*%Cc[,1:20]%*%metric
+  VT     <- 1/nobs*t(Cc[,1:(mybn/2)])%*%Cc[,1:(mybn/2)]%*%metric
   inerT  <- sum(diag(VT))
-  VS     <- 1/nobs*t(Cc[,21:40])%*%Cc[,21:40]%*%metric
+  VS     <- 1/nobs*t(Cc[,(mybn/2+1):mybn])%*%Cc[,(mybn/2+1):mybn]%*%metric
   inerS  <- sum(diag(VS))
 
   #Metric W
