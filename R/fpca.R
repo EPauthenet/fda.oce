@@ -82,7 +82,7 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
     cat("Warning : the modes are not orthogonals.")
   }
   Verif3 <- pca$val[1] - 1/nobs*t(pca$pc[,1])%*%pca$pc[,1]
-  if(Verif3>10^-14){
+  if(Verif3>10^-10){
     cat("Warning : The eigen values are not equivalent to the PC norm.")
   }
 
