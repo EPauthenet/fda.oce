@@ -4,7 +4,7 @@
 \alias{kde_pc}
 \title{Kernel Density Estimation of two Principal Components}
 \usage{
-kde_pc(pca, te = c(1, 2), h = 0.2, n = 50, l = seq(0.1, 4, 0.2),
+kde_pc(pca, te = c(1, 2), h = 0.2, n = 50, l = seq(0.01, 4, 0.3),
   title = "")
 }
 \arguments{
