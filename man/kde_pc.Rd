@@ -5,7 +5,7 @@
 \title{Kernel Density Estimation of two Principal Components}
 \usage{
 kde_pc(pca, te = c(1, 2), h = 0.2, n = 50, l = seq(0.01, 4, 0.3),
-  title = "")
+  title = "", c = "grey15")
 }
 \arguments{
 \item{pca}{The \code{pca} list returned by the function \code{fpca}.}
@@ -17,6 +17,8 @@ kde_pc(pca, te = c(1, 2), h = 0.2, n = 50, l = seq(0.01, 4, 0.3),
 \item{n}{Number of grid points in each direction. Can be scalar or a length-2 integer vector. Default is h = 50.}
 
 \item{l}{levels of contour, default is l = seq(.1,4,.2).}
+
+\item{c}{Color of the colorbar, default is grey.}
 }
 \value{
 A kernel density plot of two PCs i.e. a 2D boxplot.

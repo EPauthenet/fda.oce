@@ -4,7 +4,7 @@
 \alias{reco}
 \title{Reconstruction of Temperature and Salinity profiles}
 \usage{
-reco(pca, te)
+reco(pca, te, depth)
 }
 \arguments{
 \item{pca}{list produced by the function \code{fpca}}
@@ -12,7 +12,7 @@ reco(pca, te)
 \item{te}{how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.}
 }
 \value{
-\code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the numer of PCs \code{te}.
+\code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the number of PCs \code{te}.
 }
 \description{
 Reconstruction of Temperature and Salinity (T-S) profiles with a chosen number of Principal Components (PCs).
