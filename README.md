@@ -1,6 +1,6 @@
 # Functional Data Analysis of oceanographic profiles (fda.oce)
 
-**Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical profiles of temperature (T) and salinity (S) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case (T and S) to reduce the dimensionality of the system. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, ...
+**Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical profiles of temperature (T) and salinity (S) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case (T and S) to reduce the dimensionality of the system. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ...
 
 *Reference*: 
 - Pauthenet et al. (2018) Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters, https://doi.org/10.1029/2018GL079614
@@ -72,5 +72,8 @@ legend("topright",legend = "section WOCE i06s",pch = "+",col = 2)
 
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_pca.png" alt="drawing" width="1000px"/>
 
+# Data Calibration
+Here is an example of data calibration on a subset of [ARGO floats](http://www.seanoe.org/data/00311/42182/) in the Southern Ocean. Any profiles that is not located in the main cloud of points can be easily flagged as of low quality.
 
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/Argo_outliers.png" alt="drawing" width="1000px"/>
 
