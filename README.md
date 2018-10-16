@@ -73,7 +73,7 @@ legend("topright",legend = "section WOCE i06s",pch = "+",col = 2)
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_pca.png" alt="drawing" width="1000px"/>
 
 # Data Validation
-Here is an example of data calibration on a subset of [ARGO floats](http://www.seanoe.org/data/00311/42182/) in the Southern Ocean. Any profiles that is not located in the main cloud of points can be easily flagged as of low quality.
+Here is an example of data validation on a subset of [ARGO floats](http://www.seanoe.org/data/00311/42182/) in the Southern Ocean. Any profiles that is not located in the main cloud of points can be easily flagged as of low quality.
 
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/Argo_outliers.png" alt="drawing" width="1000px"/>
 
