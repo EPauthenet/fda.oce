@@ -49,7 +49,7 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE,we){
   ###Variance Covariance matrix weighted by WM
   if (exists(we)==TRUE){
     V   <- 1/nobs*Mdem%*%Wdem%*%t(we*Cc)%*%Cc%*%t(Wdem)%*%Mdem
-  }elseif{
+  }else{
     V   <- 1/nobs*Mdem%*%Wdem%*%t(Cc)%*%Cc%*%t(Wdem)%*%Mdem
   }
   pca <- eigen(V)
