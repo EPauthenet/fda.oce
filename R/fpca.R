@@ -47,7 +47,7 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE,we){
   M       <- Mdem^2
 
   ###Variance Covariance matrix weighted by WM
-  if (exists(we)==TRUE){
+  if (!missing(we)){
     V   <- 1/nobs*Mdem%*%Wdem%*%t(we*Cc)%*%Cc%*%t(Wdem)%*%Mdem
   }else{
     V   <- 1/nobs*Mdem%*%Wdem%*%t(Cc)%*%Cc%*%t(Wdem)%*%Mdem
