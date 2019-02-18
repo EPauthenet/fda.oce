@@ -4,7 +4,6 @@
 #'
 #' @param temp.fd,sal.fd fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.
 #' @param plot,plot3d if TRUE, plot the first two or three PCs.
-#' @param we to do a weighted PCA. Vector of length N containing the weights to assign to each profile.
 
 #' @return \code{pca} list containing the eigen (\code{values}), eigen (\code{vectors}), eigen vectors not weighted by WM (\code{vecnotWM}), principal components (\code{pc}), deformation induced by an axis (\code{axe}) percentage of each axis (\code{pval}).
 #'
@@ -13,7 +12,7 @@
 #' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
 
 #' @export
-fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE,we){
+fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
   mybn  <- length(temp.fd$coefs[,1])
   dmin  <- temp.fd$basis$rangeval[1]
   dmax  <- temp.fd$basis$rangeval[2]
@@ -47,11 +46,7 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE,we){
   M       <- Mdem^2
 
   ###Variance Covariance matrix weighted by WM
-  if (!missing(we)){
-    V   <- 1/nobs*Mdem%*%Wdem%*%t(we*Cc)%*%Cc%*%t(Wdem)%*%Mdem
-  }else{
-    V   <- 1/nobs*Mdem%*%Wdem%*%t(Cc)%*%Cc%*%t(Wdem)%*%Mdem
-  }
+  V   <- 1/nobs*Mdem%*%Wdem%*%t(Cc)%*%Cc%*%t(Wdem)%*%Mdem
   pca <- eigen(V)
 
   #make sure that the small eigen values are not slightly negative
