@@ -28,7 +28,7 @@ Then we apply the PCA on these Bsplines :
 fda.oce::fpca(temp.fd,sal.fd)
 ```
 
-The profiles can then be reconstructed with less PCs than the total number, removing the samll variability :
+The profiles can then be reconstructed with less PCs than the total number, removing the small variability :
 ``` r
 fda.oce::reco(pca,te)
 ```
