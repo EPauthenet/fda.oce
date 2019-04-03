@@ -10,6 +10,8 @@ reco(pca, te, depth)
 \item{pca}{list produced by the function \code{fpca}}
 
 \item{te}{how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.}
+
+\item{depth}{how many depth levels to get back.}
 }
 \value{
 \code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the number of PCs \code{te}.

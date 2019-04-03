@@ -32,7 +32,7 @@ eigenf <- function(pca,te,le = 50,sign = 1,tlim = c(-2,25),slim = c(33,38)){
   Cm   <- pca$Cm
 
   #Percentage of the bloc
-  pb    <- round(100*sum(pca$vecnotWM[1:mybn,te]^2),2)
+  pb    <- round(100*sum(pca$vecnotWM[1:mybn,te]^2),0)
   profx <- seq(dmin,dmax,length=le)
 
   #initialize two fd objects
@@ -75,5 +75,5 @@ eigenf <- function(pca,te,le = 50,sign = 1,tlim = c(-2,25),slim = c(33,38)){
   axis(1)
   axis(2,labels = F)
   box()
-  mtext(paste("PC",te," (",pca$pval[te]," %)",sep=""),outer = TRUE,cex = 1.5)
+  mtext(paste("PC",te," (",round(pca$pval[te],0)," %)",sep=""),outer = TRUE,cex = 1.5)
 }

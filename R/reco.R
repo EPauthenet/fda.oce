@@ -5,6 +5,7 @@
 
 #' @param pca list produced by the function \code{fpca}
 #' @param te how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.
+#' @param depth how many depth levels to get back.
 
 #' @return \code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the number of PCs \code{te}.
 #'
@@ -38,7 +39,7 @@ reco <- function(pca,te,depth){
   }
   recotemp <<- tr
   recosali <<- sr
-  depth    <<- depth
+  #depth    <<- depth
 }
 
 
