@@ -2,26 +2,26 @@
 % Please edit documentation in R/reco.R
 \name{reco}
 \alias{reco}
-\title{Reconstruction of Temperature and Salinity profiles}
+\title{Reconstruction of hydrographic profiles}
 \usage{
-reco(pca, te, depth)
+reco(pca, pc, Ntrunc)
 }
 \arguments{
-\item{pca}{list produced by the function \code{fpca}}
+\item{pca}{list containing the modes produced by the function \code{fpca}}
 
-\item{te}{how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.}
-
-\item{depth}{how many depth levels to get back.}
-}
-\value{
-\code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the number of PCs \code{te}.
+\item{Ntrunc}{how many PCs to use in the reconstruction, default is set to the total number of PC, \code{Ntrunc = nbas*ndim}.}
 }
 \description{
-Reconstruction of Temperature and Salinity (T-S) profiles with a chosen number of Principal Components (PCs).
+This function reconstructs hydrographic profiles with a chosen number of Principal Components (PCs).
 }
 \references{
-Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.
+Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+
+Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \seealso{
-\code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} FPCA of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+\code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{proj}} for computing Principal Components.
+}
+\author{
+Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
 }

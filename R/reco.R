@@ -1,45 +1,33 @@
-#' Reconstruction of Temperature and Salinity profiles
+#' Reconstruction of hydrographic profiles
 #'
-#' Reconstruction of Temperature and Salinity (T-S) profiles with a chosen number of Principal Components (PCs).
+#' This function reconstructs hydrographic profiles with a chosen number of Principal Components (PCs).
 #'
+#' @param pca list containing the modes produced by the function \code{fpca}
+#' @param Ntrunc how many PCs to use in the reconstruction, default is set to the total number of PC, \code{Ntrunc = nbas*ndim}.
 
-#' @param pca list produced by the function \code{fpca}
-#' @param te how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.
-#' @param depth how many depth levels to get back.
+#'
+#' @author Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
 
-#' @return \code{recotemp} and \code{recosali} matrix containing the reconstruction of \code{temp} and \code{sali} with the number of PCs \code{te}.
+#' @references Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+#' @references Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 #'
-#'@references Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.
-#'
-#' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} FPCA of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+#' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{proj}} for computing Principal Components.
 
 #' @export
-reco <- function(pca,te,depth){
-  dmin  <- pca$rangeval[1]
-  dmax  <- pca$rangeval[2]
-  mybn  <- pca$nbasis
-  myb   <- fda::create.bspline.basis(c(dmin,dmax),mybn)
-  if(missing(depth)){
-    depth <- dmin:dmax
-  }
-  phi   <- fda::eval.basis(myb,depth)
-  nobs  <- dim(pca$pc)[1]
+reco <- function(pca,pc,Ntrunc){
+  nbas   = pca$nbas
+  nobs   = dim(pc)[1]
+  ndim   = dim(pc)[2]/nbas
 
-  if(missing(te)){
-    te = mybn*2
-  }
+  if(missing(Ntrunc)){Ntrunc = nbas*ndim}
 
-  tr <- matrix(NaN,nobs,length(depth))
-  sr <- matrix(NaN,nobs,length(depth))
-  for(k in 1:nobs){
-    coefrecoT   <- pca$Cm[1:mybn]            + pca$vectors[1:mybn,1:te]            %*% t(t(pca$pc[k,1:te]))
-    coefrecoS   <- pca$Cm[(mybn+1):(mybn*2)] + pca$vectors[(mybn+1):(mybn*2),1:te] %*% t(t(pca$pc[k,1:te]))
-    tr[k,]  <- t(phi%*%coefrecoT)
-    sr[k,]  <- t(phi%*%coefrecoS)
+  coef = array(NaN,c(nbas,nobs,ndim))
+  for(k in 1:ndim){
+    #coef[,,k] = repmat(pca.Cm((kk-1)*nbas+1:kk*nbas)',1,nobs) + pca.vectors((kk-1)*nbas+1:kk*nbas,1:Ntrunc)*pc(:,1:Ntrunc)'
+    d = ((k-1)*nbas+1):(k*nbas)
+    coef[,,k] = matrix(rep(pca$Cm[d],nobs),nbas,nobs) + pca$vectors[d,1:Ntrunc] %*% t(pc[,1:Ntrunc])
   }
-  recotemp <<- tr
-  recosali <<- sr
-  #depth    <<- depth
+    fdobj_reco <<- fd(coef,pca$basis,pca$fdnames)
 }
 
 

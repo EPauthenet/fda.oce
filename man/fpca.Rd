@@ -2,24 +2,28 @@
 % Please edit documentation in R/fpca.R
 \name{fpca}
 \alias{fpca}
-\title{Functional Principal Component Analysis of Temperature and Salinity profiles}
+\title{Functional Principal Component Analysis of multivariate hydrographic profiles}
 \usage{
-fpca(temp.fd, sal.fd, plot = FALSE, plot3d = FALSE)
+fpca(fdobj, plot = FALSE, plot3d = FALSE)
 }
 \arguments{
-\item{temp.fd, sal.fd}{fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.}
-
-\item{plot, plot3d}{if TRUE, plot the first two or three PCs.}
+\item{fdobj}{fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.}
 }
 \value{
-\code{pca} list containing the eigen (\code{values}), eigen (\code{vectors}), eigen vectors not weighted by WM (\code{vecnotWM}), principal components (\code{pc}), deformation induced by an axis (\code{axe}) percentage of each axis (\code{pval}).
+\code{pca} list containing the eigen (\code{values}), eigen (\code{vectors}), eigen vectors not weighted by WM (\code{vecnotWM}), deformation induced by an axis (\code{axe}) percentage of each axis (\code{pval}).
 }
 \description{
-Functional Principal Component Analysis (FPCA) in the multivariate case, applied on Temperature and Salinity (T-S) profiles seen as curves (Bsplines)
+This function computes a FPCA on multivariate hydrographic profiles.
+It returns the basis of decomposition, also called the vertical modes.
 }
 \references{
-Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.
+Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+
+Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \seealso{
-\code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+\code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{proj}} for computing Principal Components, \code{\link{reco}} for reconstructing profiles with less modes.
+}
+\author{
+Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
 }

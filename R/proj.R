@@ -1,39 +1,37 @@
-#' Projection of Temperature and Salinity profiles
+#' Projection of hydrographic profiles
 #'
-#' Projection of any Temperature and Salinity (T-S) profiles on a chosen basis. It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{myb} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{mybn}).
+#' Projection of hydrographic profiles on a chosen basis (created with \code{fpca}). It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{basis} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{nbasis}).
 #'
 
-#' @param temp.fd,sal.fd fd objects (list) of the T-S profile(s) to project. This is produced by the function \code{bspl}.
-#' @param pca list of the modes to project on, produced by the function \code{fpca}.
-#' @param te how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.
+#' @param fdobj fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.
+#' @param pca list containing the modes to project on, produced by the function \code{fpca}.
 
-#' @return \code{Npc} The principal components of the profiles \code{temp.fd} and \code{sal.fd} projected on the modes contained in \code{pca}.
+#' @return \code{pc} The principal components of the profiles stored in \code{fdobj} projected on the modes contained in \code{pca}.
 #'
-#'@references Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.
+#' @author Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
+
+#' @references Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+#' @references Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 #'
-#' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} FPCA of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+#' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{reco}} for reconstructing profiles with less modes.
 
 #' @export
-proj <- function(temp.fd,sal.fd,pca){
-  mybn  <- pca$nbasis
-  myb   <- fda::create.bspline.basis(c(pca$range[1],pca$range[2]),mybn)
-  Cm    <- pca$Cm
+proj <- function(fdobj,pca){
+  nbas  = pca$nbasis
+  basis = pca$basis
+  coef  = fdobj$coefs
+  Cm    = pca$Cm
+  nobs  = dim(coef)[2]
+  ndim   = dim(coef)[3]
 
-  #Metric M
-  M       <- c(rep(1/pca$inerT,mybn),rep(1/pca$inerS,mybn))
-  Mdem    <- diag(sqrt(M))
-  Mdeminv <- diag(1/sqrt(M))
-  M       <- Mdem^2
-
-  #Metric W
-  W   <- fda::eval.penalty(myb)
-  nul <- matrix(0,mybn,mybn)
-  W   <- cbind(rbind(W,nul),rbind(nul,W))
-  W   <- (W+t(W))/2
-
-  #Combine T and S and substract the mean of the modes to project on
-  C  <- cbind(t(temp.fd$coefs),t(sal.fd$coefs))
+  C = NULL
+  for(k in 1:ndim){
+    C  <- cbind(C,t(coef[,,k]))
+  }
   Cc <- sweep(C,2,Cm,"-")
 
-  Npc<<-Cc%*%t(W)%*%M%*%pca$vectors
+  pc<<-Cc %*% t(pca$W) %*% pca$M %*% pca$vectors
 }
+
+
+

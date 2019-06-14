@@ -6,26 +6,24 @@
 \alias{oce.fda-package}
 \title{fda.oce: A package for the use of functional data analysis tools on oceanographic profiles.}
 \description{
-The \pkg{fda.oce} package provides a serie of functions companion to Pauthenet et al. (2017), to analyze the variability in a field of temperature and salinity.
+The \pkg{fda.oce} package provides a serie of functions companion to Pauthenet et al. (2017), to analyze the variability in multivariate hydrographic profiles.
 }
 \section{Functions }{
 
-\code{bspl} : functions to see temperature and salinity (T-S) profiles as curves (Bsplines)
+\code{bspl} : function to fit B-splines on multivariate hydrographic profiles
 
-\code{fpca} : analyze the joint variance of T and S with the use of a Functional Principal Component Analysis
+\code{fpca} : compute a basis of modes from multivariate hydrographic profiles using a functional principal component analysis (fpca).
 
-\code{reco} : The profiles can be reconstructed with less Principal Components (PCs) to see the effect of the modes separately
+\code{proj} : project multivariate hydrographic profiles on a basis (computed with \code{\link{fpca}}) to obtain the principal components (pc) of the dataset
 
-\code{proj} : Any T-S profiles (observation, model,...) can be transformed into a function (\code{bspl}) and projected on the modes wanted.
+\code{reco} : reconstruct the profiles with a chosen numbers of principal components
 }
 
 \section{Visualisations }{
 
-\code{eigenf} : effect of each eigenfunction (i. e. vertical mode) on the mean T-S profile.
+\code{eigenf} : effect of each eigenfunction (i. e. vertical mode) on the mean profile.
 
-\code{map_pc} : Map of PC
-
-\code{kde_pc} : Kernel density estimation of two PCs
+\code{pc_plot} : plot the PC values with the appropriate axis and percentage values on the labels
 }
 
 \references{
@@ -34,5 +32,5 @@ Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohalin
 Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \author{
-Etienne Pauthenet \code{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}
+Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
 }

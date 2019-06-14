@@ -1,46 +1,53 @@
-#' Functional Principal Component Analysis of Temperature and Salinity profiles
+#' Functional Principal Component Analysis of multivariate hydrographic profiles
 #'
-#' Functional Principal Component Analysis (FPCA) in the multivariate case, applied on Temperature and Salinity (T-S) profiles seen as curves (Bsplines)
+#' This function computes a FPCA on multivariate hydrographic profiles.
+#' It returns the basis of decomposition, also called the vertical modes.
 #'
-#' @param temp.fd,sal.fd fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.
-#' @param plot,plot3d if TRUE, plot the first two or three PCs.
+#' @param fdobj fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.
 
-#' @return \code{pca} list containing the eigen (\code{values}), eigen (\code{vectors}), eigen vectors not weighted by WM (\code{vecnotWM}), principal components (\code{pc}), deformation induced by an axis (\code{axe}) percentage of each axis (\code{pval}).
+#' @return \code{pca} list containing the eigen (\code{values}), eigen (\code{vectors}), eigen vectors not weighted by WM (\code{vecnotWM}), deformation induced by an axis (\code{axe}) percentage of each axis (\code{pval}).
 #'
-#'@references Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.
+#' @author Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
+
+#' @references Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+#' @references Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 #'
-#' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+#' @seealso \code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{proj}} for computing Principal Components, \code{\link{reco}} for reconstructing profiles with less modes.
+
 
 #' @export
-fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
-  mybn  <- length(temp.fd$coefs[,1])
-  dmin  <- temp.fd$basis$rangeval[1]
-  dmax  <- temp.fd$basis$rangeval[2]
-  nobs  <- dim(temp.fd$coefs)[2]
-  myb   <- fda::create.bspline.basis(c(dmin,dmax),mybn)
-  depth <- dmin:dmax
+fpca <-function(fdobj,plot = FALSE,plot3d = FALSE){
+  coef  = fdobj$coefs
+  basis = fdobj$basis
+  metric = fda::eval.penalty(basis)
+  nbas   = basis$nbasis
+  nobs   = dim(coef)[2]
+  ndim   = dim(coef)[3]
+  prange = basis$rangeval
+  depth  = prange[1]:prange[2]
 
-  C  <- cbind(t(temp.fd$coefs),t(sal.fd$coefs))
-  Cm <- apply(C,2,mean)
+  C = NULL
+  for(k in 1:ndim){
+    C  <- cbind(C,t(coef[,,k]))
+  }
+  Cm <- apply(C,2,mean,na.rm = T)
   Cc <- sweep(C,2,Cm,"-")
 
   #Inertia
-  metric <- fda::eval.penalty(myb)
-  VT     <- 1/nobs*t(Cc[,1:mybn])%*%Cc[,1:mybn]%*%metric
+  VT     <- 1/nobs*t(Cc[,1:nbas])%*%Cc[,1:nbas]%*%metric
   inerT  <- sum(diag(VT))
-  VS     <- 1/nobs*t(Cc[,(mybn+1):(2*mybn)])%*%Cc[,(mybn+1):(2*mybn)]%*%metric
+  VS     <- 1/nobs*t(Cc[,(nbas+1):(2*nbas)])%*%Cc[,(nbas+1):(2*nbas)]%*%metric
   inerS  <- sum(diag(VS))
 
   #Metric W
-  W       <- fda::eval.penalty(myb)
-  nul     <- matrix(0,mybn,mybn)
-  W       <- cbind(rbind(W,nul),rbind(nul,W))
+  nul     <- matrix(0,nbas,nbas)
+  W       <- cbind(rbind(metric,nul),rbind(nul,metric))
   W       <- (W+t(W))/2
   Wdem    <- chol(W)
   Wdeminv <- solve(Wdem)
 
   #Metric M
-  M       <- c(rep(1/inerT,mybn),rep(1/inerS,mybn))
+  M       <- c(rep(1/inerT,nbas),rep(1/inerS,nbas))
   Mdem    <- diag(sqrt(M))
   Mdeminv <- diag(1/sqrt(M))
   M       <- Mdem^2
@@ -51,9 +58,6 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
 
   #make sure that the small eigen values are not slightly negative
   pca$values <- abs(pca$values)
-
-  ##Principal Components (PCs)
-  pca$pc <- Cc%*%t(Wdem)%*%Mdem%*%pca$vectors
 
   ###Normalisation of eigen vectors for the metric WM
   pca$vecnotWM <- pca$vectors
@@ -71,8 +75,14 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
   pca$inerS <- inerS
   pca$Cm    <- Cm
 
-  ###Store the informations of the basis myb
-  pca <-c(pca,myb[2:5])
+  pca$basis = basis
+  pca$metric = metric
+  pca$W = W
+  pca$M = M
+  pca$nbas = nbas
+  pca$nobs = nobs
+  pca$ndim = ndim
+  pca$fdnames = fdobj$fdnames
 
   ####Verification
   # Eigen vectors should be orthogonals for the metric WM
@@ -84,17 +94,6 @@ fpca <-function(temp.fd,sal.fd,plot = FALSE,plot3d = FALSE){
   Verif3 <- pca$val[1] - 1/nobs*t(pca$pc[,1])%*%pca$pc[,1]
   if(Verif3>10^-10){
     cat("Warning : The eigen values are not equivalent to the PC norm.")
-  }
-
-  if (plot == TRUE){
-    plot(pca$pc[,1:2],xlab=paste("PC1 (",pca$pval[1]," %)"),las = 1
-      ,ylab=paste("PC2 (",pca$pval[2]," %)"),col = 1,pch = 20,cex = .4)
-    abline(v=0,h=0,lty=3)
-  }
-  if (plot3d == TRUE){
-    rgl::plot3d(pca$pc[,1:3],xlab=paste("PC1 (",pca$pval[1]," %)")
-      ,ylab=paste("PC2 (",pca$pval[2]," %)")
-      ,zlab=paste("PC3 (",pca$pval[3]," %)"),col = 1,pch = 20)
   }
 
   #Return

@@ -2,26 +2,29 @@
 % Please edit documentation in R/proj.R
 \name{proj}
 \alias{proj}
-\title{Projection of Temperature and Salinity profiles}
+\title{Projection of hydrographic profiles}
 \usage{
-proj(temp.fd, sal.fd, pca)
+proj(fdobj, pca)
 }
 \arguments{
-\item{temp.fd, sal.fd}{fd objects (list) of the T-S profile(s) to project. This is produced by the function \code{bspl}.}
+\item{fdobj}{fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.}
 
-\item{pca}{list of the modes to project on, produced by the function \code{fpca}.}
-
-\item{te}{how many PCs to use in the reconstruction, default is set to the total number of PC, \code{te = mybn}.}
+\item{pca}{list containing the modes to project on, produced by the function \code{fpca}.}
 }
 \value{
-\code{Npc} The principal components of the profiles \code{temp.fd} and \code{sal.fd} projected on the modes contained in \code{pca}.
+\code{pc} The principal components of the profiles stored in \code{fdobj} projected on the modes contained in \code{pca}.
 }
 \description{
-Projection of any Temperature and Salinity (T-S) profiles on a chosen basis. It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{myb} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{mybn}).
+Projection of hydrographic profiles on a chosen basis (created with \code{fpca}). It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{basis} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{nbasis}).
 }
 \references{
-Ramsay J. O., and B. W. Silverman, 2005: Functional Data Analysis. Springer, 426 pp.
+Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+
+Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \seealso{
-\code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} FPCA of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+\code{\link{bspl}} for bsplines fit on T-S profiles, \code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{reco}} for reconstructing profiles with less modes.
+}
+\author{
+Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
 }

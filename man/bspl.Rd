@@ -2,33 +2,33 @@
 % Please edit documentation in R/bspl.R
 \name{bspl}
 \alias{bspl}
-\title{Fit of B-splines on Temperature and Salinity profiles}
+\title{B-spline fits on Multivariate Hydrographic Profiles}
 \usage{
-bspl(temp, sal, Depth, range, mybn = 20, l = 100)
+bspl(Pi, Xi, nbas = 20, fdn = list("Temperature", "Salinity"))
 }
 \arguments{
-\item{temp}{temperature stored in arrays \code{ind*depth} or \code{lon*lat*depth} or \code{lon*lat*depth*time}}
+\item{Pi}{vector containing the levels}
 
-\item{sal}{salinity stored in arrays \code{lon*lat*depth} or \code{lon*lat*depth*time}}
+\item{Xi}{array containing the profiles stored in this order \code{levels} x \code{stations} x \code{variables}}
 
-\item{range}{vector of two elements containing the first and last depth level \code{c(dmin,dmax)}, \code{dmin} and \code{dmax} must be contained by the \code{depth} range.}
+\item{nbas}{number of Bsplines (coefficients), by default nbas = 20.}
 
-\item{mybn}{number of splines, Default is mybn = 20.}
-
-\item{l}{number of interpolation point. The number of points to interpolate must be large enough to avoid overfitting. Default is l = 100.}
-
-\item{depth}{depth can be a vector or a matrix (case of irregular vertical sampling)}
+\item{fdn}{a list of the variable names, by default fdn = list('Temperature','Salinity').}
 }
 \value{
-\code{temp.fd} and \code{sal.fd} : fd objects of the splines construction containing coefficients, etc...
-
-\code{BS} list containing :\code{profx}, \code{Teval} and \code{Seval} (the splines sampled along profx)
-
-\code{mask} : if the data was on a regular horizontal grid
+\code{fdobj} : fd objects of the splines construction containing coefficients, basis etc... The coefficients are stored in an array \code{nbasis} x \code{stations} x \code{variables}
 }
 \description{
-Fit B-splines on Temperature and Salinity (T-S) profiles from gridded dataset (reanalysis, models,...)
+This function fits B-splines on multivariate hydrographic profiles and return a functional data object.
+}
+\references{
+Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+
+Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
 \seealso{
-\code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{PCmap}} for plotting a map of PC, \code{\link{kde_pc}} for kernel density estimation of two PCs...
+\code{\link{fpca}} for functional principal component analysis of T-S profiles, \code{\link{proj}} for computing Principal Components, \code{\link{reco}} for reconstructing profiles with less modes.
+}
+\author{
+Etienne Pauthenet \email{<etienne.pauthenet@gmail.com>}, David Nerini \code{<david.nerini@univ-amu.fr>}, Fabien Roquet \code{<fabien.roquet@gu.se>}
 }
