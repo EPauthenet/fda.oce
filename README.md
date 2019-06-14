@@ -1,6 +1,6 @@
 # Functional Data Analysis of oceanographic profiles (fda.oce)
 
-**Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical profiles of temperature (T) and salinity (S) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case (T and S) to reduce the dimensionality of the system. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ...
+**Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical hydrographic profiles of several variables (temperature, salinity, oxygen,...) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case to reduce the dimensionality of the system. The classical case is done with couples of temperature and salinity. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ...
 
 *References*: 
 - Pauthenet et al. (2018) Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters, [10.1029/2018GL079614](https://doi.org/10.1029/2018GL079614)
@@ -17,12 +17,14 @@ help(package = fda.oce)
 # Demo
 Here is an example of how to use these functions. We compute the modes for a subsample (given here in a RData) of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015.
 
+# B-splines fit
 First we load the data and fit the Bsplines on the 1691 profiles of the example. By default the function fit 20 Bsplines. It returns a fd object named 'fdobj' :
 ``` r
 load("GLORYS_SO_2015-12.RData")
 fda.oce::bspl(Pi,Xi)
 ```
 
+# FPCA
 Then we apply the FPCA on the fd object :
 ``` r
 fda.oce::fpca(fdobj)
@@ -32,7 +34,7 @@ The profiles can be projected on the modes defined by the FPCA, to get the princ
 ``` r
 fda.oce::proj(fdobj,pca)
 ```
-
+# Visualisation
 Visualisation of the 2 first PCs :
 ``` r
 pc_plot(pca,pc,c(1,2))
