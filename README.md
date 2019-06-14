@@ -76,5 +76,5 @@ for(k in 1:ndim){
 legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA)
   ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
 ```
-
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/reco_prof3.png" alt="drawing" width="1000px"/>
 
