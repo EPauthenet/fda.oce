@@ -4,7 +4,7 @@
 \alias{fpca}
 \title{Functional Principal Component Analysis of multivariate hydrographic profiles}
 \usage{
-fpca(fdobj, plot = FALSE, plot3d = FALSE)
+fpca(fdobj)
 }
 \arguments{
 \item{fdobj}{fd objects (list) of the splines construction containing coefficients, etc... This is produced by the function \code{bspl}.}

@@ -16,7 +16,7 @@
 
 
 #' @export
-fpca <-function(fdobj,plot = FALSE,plot3d = FALSE){
+fpca <-function(fdobj){
   coef  = fdobj$coefs
   basis = fdobj$basis
   metric = fda::eval.penalty(basis)
@@ -91,11 +91,6 @@ fpca <-function(fdobj,plot = FALSE,plot3d = FALSE){
   if(Verif0>10^-14 | Verif1 >10^-14){
     cat("Warning : the modes are not orthogonals.")
   }
-  Verif3 <- pca$val[1] - 1/nobs*t(pca$pc[,1])%*%pca$pc[,1]
-  if(Verif3>10^-10){
-    cat("Warning : The eigen values are not equivalent to the PC norm.")
-  }
-
   #Return
   pca <<- pca
 }

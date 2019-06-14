@@ -31,6 +31,12 @@ proj <- function(fdobj,pca){
   Cc <- sweep(C,2,Cm,"-")
 
   pc<<-Cc %*% t(pca$W) %*% pca$M %*% pca$vectors
+
+  Verif3 <- pca$val[1] - 1/nobs*t(pc[,1]) %*% pc[,1]
+  if(Verif3>10^-10){
+    cat("Warning : The eigen values are not equivalent to the PC norm.")
+  }
+
 }
 
 
