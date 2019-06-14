@@ -61,15 +61,15 @@ data_reco = eval.fd(Pi,fdobj_reco)
 And finally we can represent the profiles reconstructed compared to the original data :
 ``` r
 i = 3  #index of a profile
-par(mfrow = c(1,2))
-for(k in 1:ndim){
-  plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1
+par(mfrow = c(1,ndim))
+for(k in 1:ndim){ #Loop for each variable                        
+  plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1   #Plot of the raw data
     ,xlim = range(Xi[,i,k],data_reco[,i,k])
     ,ylim = c(1000,0)
     ,xlab = pca$fdnames[[2+k]]
     ,ylab = pca$fdnames[[1]])
-  points(data[,i,k],Pi,typ = 'l',col = 2)
-  points(data_reco[,i,k],Pi,las = 1,ylim = c(1000,0),typ = 'l',col = 3)
+  lines(data[,i,k],Pi,col = 2)              #Plot of the B-spline fit
+  lines(data_reco[,i,k],Pi,col = 3)         #Plot of the reconstructed profiles
 }
 legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA)
   ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
