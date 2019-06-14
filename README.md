@@ -17,63 +17,64 @@ help(package = fda.oce)
 # Demo
 Here is an example of how to use these functions. We compute the modes for a subsample (given here in a RData) of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015.
 
-First we load the data and fit the Bsplines on the 1691 profiles of the example, between 5 and 1000m with 20 Bsplines :
+First we load the data and fit the Bsplines on the 1691 profiles of the example. By default the function fit 20 Bsplines. It returns a fd object named 'fdobj' :
 ``` r
-load("GLORYS_2015-12_SO_sub10.RData")
-fda.oce::bspl(temp,sal,depth,range = c(5,1000),mybn = 20)
+load("GLORYS_SO_2015-12.RData")
+fda.oce::bspl(Pi,Xi)
 ```
 
-Then we apply the PCA on these Bsplines :
+Then we apply the FPCA on the fd object :
 ``` r
-fda.oce::fpca(temp.fd,sal.fd)
+fda.oce::fpca(fdobj)
 ```
 
-The profiles can then be reconstructed with less PCs than the total number, removing the small variability :
+The profiles can be projected on the modes defined by the FPCA, to get the principal components (PCs) :
 ``` r
-fda.oce::reco(pca,te)
+fda.oce::proj(fdobj,pca)
 ```
 
-And we can project any other profile on the modes computed with a climatology (here a subset of GLORYS 12-2015). For example we fitted Bsplines on the [WOCE section i06s](https://www.nodc.noaa.gov/woce/wdiu/) and store it in a RData. Now we load it and project it on the GLORYS modes :
-
+Visualisation of the 2 first PCs :
 ``` r
-load("i06s_1000m40BS.RData")
-fda.oce::proj(ti06.fd,si06.fd,pca)
+pc_plot(pca,pc,c(1,2))
+```
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/pc_plot.png" alt="drawing" width="1000px"/>
+
+Visualisation of the 2 first eigenfunctions effect on the mean profile (red (+1) and blue (-1)) :
+``` r
+eigenf_plot(pca,1)
+eigenf_plot(pca,2)
+```
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf1.png" alt="drawing" width="350px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf2.png" alt="drawing" width="350px"/>
+
+
+# Reconstruction
+The profiles can then be reconstructed with less PCs than the total number, removing the small variability. For example with only 5 modes :
+``` r
+te = 5
+reco(pca,pc,te)
 ```
 
-
-# Visual representation
-We can plot the effects of the vertical modes on temperature and salinity mean profiles :
+To transform fd objects back in a the variable space, we use the function eval.fd ("fda" package) :
 ``` r
-for (te in 1:4){
-  fda.oce::eigenf(pca,te)
+data = eval.fd(Pi,fdobj)
+data_reco = eval.fd(Pi,fdobj_reco)
+```
+
+And finally we can represent the profiles reconstructed compared to the original data :
+``` r
+i = 3  #index of a profile
+par(mfrow = c(1,2))
+for(k in 1:ndim){
+  plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1
+    ,xlim = range(Xi[,i,k],data_reco[,i,k])
+    ,ylim = c(1000,0)
+    ,xlab = pca$fdnames[[2+k]]
+    ,ylab = pca$fdnames[[1]])
+  points(data[,i,k],Pi,typ = 'l',col = 2)
+  points(data_reco[,i,k],Pi,las = 1,ylim = c(1000,0),typ = 'l',col = 3)
 }
+legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA)
+  ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
 ```
 
-
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen1.png" alt="drawing" width="350px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen2.png" alt="drawing" width="350px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen3.png" alt="drawing" width="350px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_eigen4.png" alt="drawing" width="350px"/>
-
-
-We can plot the PC in space, here are the 4 first :
-``` r
-par(mfrow = c(2,2),mar = c(1,3,3,3))
-for (te in 1:4){
-  fda.oce::map_pc(lon,lat,pca,mask,te)
-}
-```
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_PCmap.png" alt="drawing" width="1000px"/>
-
-We can also make a kernel density estimation (KDE) of the PC, here PC1 against PC2, with the section WOCE i06s in red :
-
-``` r
-fda.oce::kde_pc(pca, te = c(1, 2))
-points(Npc[,1:2],col = 2,pch = "+")
-legend("topright",legend = "section WOCE i06s",pch = "+",col = 2)
-```
-
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/GLO_pca.png" alt="drawing" width="1000px"/>
-
-# Data Validation
-Here is an example of data validation on a subset of [ARGO floats](http://www.seanoe.org/data/00311/42182/) in the Southern Ocean. Any profiles that is not located in the main cloud of points can be easily flagged as of low quality.
-
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/Argo_outliers.png" alt="drawing" width="1000px"/>
 
