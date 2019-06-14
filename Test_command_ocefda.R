@@ -45,9 +45,15 @@ fda.oce::bspl(Pi,Xi)
 fpca(fdobj)
 proj(fdobj,pca)
 
+png("~/Documents/R/fda.oce/figures/pc_plot.png", width=7, height=7, units="in", res=600)
 pc_plot(pca,pc,c(1,2))
-eigenf_plot(pca,2)
-
+dev.off()
+#
+for(te in 1:2){
+  png(paste("~/Documents/R/fda.oce/figures/eigenf",te,".png",sep = ""), width=7, height=7, units="in", res=600)
+  eigenf_plot(pca,te)
+  dev.off()
+}
 
 
 te = 5
@@ -57,6 +63,7 @@ data = eval.fd(Pi,fdobj)
 data_reco = eval.fd(Pi,fdobj_reco)
 
 i = 3  #index of a profile
+png(paste("~/Documents/R/fda.oce/figures/reco_prof",i,".png",sep = ""), width=7, height=7, units="in", res=600)
 par(mfrow = c(1,2))
 for(k in 1:ndim){
   plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1
@@ -67,8 +74,9 @@ for(k in 1:ndim){
   points(data[,i,k],Pi,typ = 'l',col = 2)
   points(data_reco[,i,k],Pi,las = 1,ylim = c(1000,0),typ = 'l',col = 3)
 }
-legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA),cex = .8
+legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA),cex = .7
   ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
+dev.off()
 #
 
 ##########The test run will be done on a subsample of one monthly mean field from Global Ocean Physics Reanalysis

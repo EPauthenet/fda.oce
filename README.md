@@ -44,7 +44,7 @@ Visualisation of the 2 first eigenfunctions effect on the mean profile (red (+1)
 eigenf_plot(pca,1)
 eigenf_plot(pca,2)
 ```
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf1.png" alt="drawing" width="350px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf2.png" alt="drawing" width="350px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf1.png" alt="drawing" width="370px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf2.png" alt="drawing" width="370px"/>
 
 
 # Reconstruction
