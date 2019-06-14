@@ -17,14 +17,12 @@ help(package = fda.oce)
 # Demo
 Here is an example of how to use these functions. We compute the modes for a subsample (given here in a RData) of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015.
 
-**B-splines fit**
 First we load the data and fit the Bsplines on the 1691 profiles of the example. By default the function fit 20 Bsplines. It returns a fd object named 'fdobj' :
 ``` r
 load("GLORYS_SO_2015-12.RData")
 fda.oce::bspl(Pi,Xi)
 ```
 
-**FPCA**
 Then we apply the FPCA on the fd object :
 ``` r
 fda.oce::fpca(fdobj)
@@ -34,7 +32,7 @@ The profiles can be projected on the modes defined by the FPCA, to get the princ
 ``` r
 fda.oce::proj(fdobj,pca)
 ```
-**Visualisation**
+
 Visualisation of the 2 first PCs :
 ``` r
 pc_plot(pca,pc,c(1,2))
@@ -48,8 +46,6 @@ eigenf_plot(pca,2)
 ```
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf1.png" alt="drawing" width="370px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf2.png" alt="drawing" width="370px"/>
 
-
-**Reconstruction**
 The profiles can then be reconstructed with less PCs than the total number, removing the small variability. For example with only 5 modes :
 ``` r
 te = 5
