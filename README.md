@@ -15,7 +15,7 @@ help(package = fda.oce)
 ```
 
 # Demo
-Here is an example of how to use these functions. We compute the modes for a subsample (given here in a RData) of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015.
+Here is an example of how to use these functions. We compute the modes for temperature and salinity profiles of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015.
 
 First we load the data and fit the Bsplines on the 1691 profiles of the example. By default the function fit 20 Bsplines. It returns a fd object named 'fdobj' :
 ``` r
@@ -54,25 +54,25 @@ reco(pca,pc,te)
 
 To transform fd objects back in a the variable space, we use the function eval.fd ("fda" package) :
 ``` r
-data = eval.fd(Pi,fdobj)
-data_reco = eval.fd(Pi,fdobj_reco)
+X = eval.fd(Pi,fdobj)
+X_reco = eval.fd(Pi,fdobj_reco)
 ```
 
 And finally we can represent the profiles reconstructed compared to the original data :
 ``` r
-i = 3  #index of a profile
-par(mfrow = c(1,ndim))
+i = 600  #index of a profile
+par(mfrow = c(1,pca$ndim))
 for(k in 1:ndim){ #Loop for each variable                        
   plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1   #Plot of the raw data
     ,xlim = range(Xi[,i,k],data_reco[,i,k])
     ,ylim = c(1000,0)
     ,xlab = pca$fdnames[[2+k]]
     ,ylab = pca$fdnames[[1]])
-  lines(data[,i,k],Pi,col = 2)              #Plot of the B-spline fit
-  lines(data_reco[,i,k],Pi,col = 3)         #Plot of the reconstructed profiles
+  lines(X[,i,k],Pi,col = 2)              #Plot of the B-spline fit
+  lines(X_reco[,i,k],Pi,col = 3)         #Plot of the reconstructed profiles
 }
 legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA)
   ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
 ```
-<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/reco_prof3.png" alt="drawing" width="1000px"/>
+<img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/reco_prof600.png" alt="drawing" width="1000px"/>
 

@@ -37,7 +37,10 @@ Xi = Xi[,colSums(is.na(Xi[,,1]))<47,]   #Remove lands
 Xi = Xi[,is.na(Xi[47,,1])==F,]   #Remove short profiles
 Pi = as.numeric(depth)
 save(Pi,Xi,file = "GLORYS_SO_2015-12.RData")
-
+library(R.matlab)
+writeMat("GLORYS_SO_2015-12.mat",Pi = Pi,Xi = Xi)
+#
+#####################################
 load("GLORYS_SO_2015-12.RData")
 fda.oce::bspl(Pi,Xi)
 
@@ -55,17 +58,16 @@ for(te in 1:2){
   dev.off()
 }
 
-
 te = 5
 reco(pca,pc,te)
 
 data = eval.fd(Pi,fdobj)
 data_reco = eval.fd(Pi,fdobj_reco)
 
-i = 3  #index of a profile
+i = 600  #index of a profile
 png(paste("~/Documents/R/fda.oce/figures/reco_prof",i,".png",sep = ""), width=7, height=7, units="in", res=600)
 par(mfrow = c(1,2))
-for(k in 1:ndim){
+for(k in 1:pca$ndim){
   plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1
     ,xlim = range(Xi[,i,k],data_reco[,i,k])
     ,ylim = c(1000,0)
@@ -78,6 +80,15 @@ legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA),cex = .7
   ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
 dev.off()
 #
+
+
+
+
+
+
+
+
+
 
 ##########The test run will be done on a subsample of one monthly mean field from Global Ocean Physics Reanalysis
 #(mercatorglorys2v4_gl4_mean_201512.nc)
