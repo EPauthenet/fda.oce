@@ -35,21 +35,21 @@ fda.oce::proj(fdobj,pca)
 
 Visualisation of the 2 first PCs :
 ``` r
-pc_plot(pca,pc,c(1,2))
+fda.oce::pc_plot(pca,pc,c(1,2))
 ```
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/pc_plot.png" alt="drawing" width="1000px"/>
 
 Visualisation of the 2 first eigenfunctions effect on the mean profile (red (+1) and blue (-1)) :
 ``` r
-eigenf_plot(pca,1)
-eigenf_plot(pca,2)
+fda.oce::eigenf_plot(pca,1)
+fda.oce::eigenf_plot(pca,2)
 ```
 <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf1.png" alt="drawing" width="370px"/> <img src="https://github.com/EPauthenet/fda.oce/blob/master/figures/eigenf2.png" alt="drawing" width="370px"/>
 
 The profiles can then be reconstructed with less PCs than the total number, removing the small variability. For example with only 5 modes :
 ``` r
 te = 5
-reco(pca,pc,te)
+fda.oce::reco(pca,pc,te)
 ```
 
 To transform fd objects back in a the variable space, we use the function eval.fd ("fda" package) :

@@ -18,7 +18,7 @@
 #' @export
 eigenf_plot <- function(pca,te,sign = 1){
   nbas  = pca$nbas
-  ndim   = dim(coef)[3]
+  ndim   = pca$ndim
   basis = pca$basis
   Cm    = pca$Cm
   prange = basis$rangeval

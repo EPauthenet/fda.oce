@@ -1,7 +1,5 @@
 library(devtools)
 devtools::install_github("Epauthenet/fda.oce")
-#help(package = fda.oce)
-library(fda.oce)
 ###########################
 
 install.packages("roxygen2")
@@ -36,59 +34,29 @@ Xi = array(c(Temp,Sal),c(47,144*17,2))
 Xi = Xi[,colSums(is.na(Xi[,,1]))<47,]   #Remove lands
 Xi = Xi[,is.na(Xi[47,,1])==F,]   #Remove short profiles
 Pi = as.numeric(depth)
-save(Pi,Xi,file = "GLORYS_SO_2015-12.RData")
-library(R.matlab)
-writeMat("GLORYS_SO_2015-12.mat",Pi = Pi,Xi = Xi)
-#
-#####################################
-load("GLORYS_SO_2015-12.RData")
-fda.oce::bspl(Pi,Xi)
+
+
+
+oce.fda::bspl(Pi,Xi)
 
 #
-fpca(fdobj)
-proj(fdobj,pca)
+fpca(fdobj,plot = T,plot3d = T)
+pc = proj(fdobj,pca)
+reco(pca,pc,3)
 
-png("~/Documents/R/fda.oce/figures/pc_plot.png", width=7, height=7, units="in", res=600)
-pc_plot(pca,pc,c(1,2))
-dev.off()
-#
-for(te in 1:2){
-  png(paste("~/Documents/R/fda.oce/figures/eigenf",te,".png",sep = ""), width=7, height=7, units="in", res=600)
-  eigenf_plot(pca,te)
-  dev.off()
-}
-
-te = 5
-reco(pca,pc,te)
-
+i = 1201
 data = eval.fd(Pi,fdobj)
 data_reco = eval.fd(Pi,fdobj_reco)
-
-i = 600  #index of a profile
-png(paste("~/Documents/R/fda.oce/figures/reco_prof",i,".png",sep = ""), width=7, height=7, units="in", res=600)
 par(mfrow = c(1,2))
-for(k in 1:pca$ndim){
-  plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1
-    ,xlim = range(Xi[,i,k],data_reco[,i,k])
-    ,ylim = c(1000,0)
-    ,xlab = pca$fdnames[[2+k]]
-    ,ylab = pca$fdnames[[1]])
-  points(data[,i,k],Pi,typ = 'l',col = 2)
-  points(data_reco[,i,k],Pi,las = 1,ylim = c(1000,0),typ = 'l',col = 3)
+for(d in 1:ndim){
+  plot(Xi[,i,d],Pi,las = 1,ylim = c(1000,0),cex = .2,col = 1)
+  points(data[,i,d],Pi,typ = 'l',col = 2)
+  points(data_reco[,i,d],Pi,las = 1,ylim = c(1000,0),typ = 'l',col = 3)
 }
-legend("bottomleft",col = c(1,2,3),lty = c(NA,1,1),pch = c(20,NA,NA),cex = .7
-  ,legend = c("raw data","B-spline fit",paste("reconstruction with ",te," modes",sep = "")))
-dev.off()
-#
 
+pc_plot(pca,pc,c(2,3,4))
 
-
-
-
-
-
-
-
+eigenf_plot(pca,1)
 
 ##########The test run will be done on a subsample of one monthly mean field from Global Ocean Physics Reanalysis
 #(mercatorglorys2v4_gl4_mean_201512.nc)
