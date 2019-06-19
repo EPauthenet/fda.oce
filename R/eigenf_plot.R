@@ -28,8 +28,8 @@ eigenf_plot <- function(pca,te,sign = 1){
   for(k in 1:ndim){
     d  = ((k-1)*nbas+1):(k*nbas)                    # Position of the variable k in the eigenvectors
     pb = round(100*sum(pca$vecnotWM[d,te]^2),0)    # Percentage of the bloc
-    fdobj_vp = fd(Cm[d] + pca$axe[d,te],pca$basis,pca$fdnames);
-    fdobj_vm = fd(Cm[d] - pca$axe[d,te],pca$basis,pca$fdnames);
+    fdobj_vp = fd(Cm[d] + sign*pca$axe[d,te],pca$basis,pca$fdnames);
+    fdobj_vm = fd(Cm[d] - sign*pca$axe[d,te],pca$basis,pca$fdnames);
     fdobj_m   = fd(Cm[d],pca$basis,pca$fdnames);
     vp = eval.fd(depth,fdobj_vp);
     vm = eval.fd(depth,fdobj_vm);
