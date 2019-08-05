@@ -23,7 +23,7 @@ bspl <- function(Pi,Xi,nbas = 20,fdn = list('Temperature','Salinity')){
   fdn1 = list('Level','Station')
   fdnames = c(fdn1,fdn)
   prange = c(Pi[1],Pi[length(Pi)])
-  Breaks=round(prange[1]+(prange[2]-prange[1])*tan(seq(0,1,1/(nbas-3)))/tan(1),2)
+  Breaks=prange[1]+(prange[2]-prange[1])*tan(seq(0,1,1/(nbas-3)))/tan(1)
   basis = create.bspline.basis(rangeval = prange,nbasis = nbas,norder = 4,breaks = Breaks)
 
   fdobj <<- Data2fd(argvals = Pi,y = Xi,basisobj = basis,fdnames = fdnames)
