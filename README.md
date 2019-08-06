@@ -19,7 +19,7 @@ help(package = fda.oce)
 ```
 
 # Demo
-Here is an example of how to use these functions. We compute the modes for temperature and salinity profiles of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015.
+Here is an example of how to use these functions. We compute the modes for temperature and salinity profiles of the reanalysis [GLORYS](http://marine.copernicus.eu/services-portfolio/access-to-products/) in the Southern Ocean for December of 2015. The profiles are stored in a matrix named Xi, of size levels*stations*variables.
 
 First we load the data and fit the Bsplines on the 1691 profiles of the example. By default the function fit 20 Bsplines. It returns a fd object named 'fdobj' :
 ``` r
