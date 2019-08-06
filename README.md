@@ -65,9 +65,9 @@ And finally we can represent the profiles reconstructed compared to the original
 ``` r
 i = 600  #index of a profile
 par(mfrow = c(1,pca$ndim))
-for(k in 1:ndim){ #Loop for each variable                        
+for(k in 1:pca$ndim){ #Loop for each variable                        
   plot(Xi[,i,k],Pi,las = 1,cex = .2,col = 1   #Plot of the raw data
-    ,xlim = range(Xi[,i,k],data_reco[,i,k])
+    ,xlim = range(Xi[,i,k],X_reco[,i,k])
     ,ylim = c(1000,0)
     ,xlab = pca$fdnames[[2+k]]
     ,ylab = pca$fdnames[[1]])

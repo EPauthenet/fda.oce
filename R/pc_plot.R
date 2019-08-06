@@ -26,6 +26,7 @@ pc_plot <-function(pca,pc,n = c(1,2)){
     abline(v=0,h=0,lty=3)
   }
   if(length(n)==3){
+    require(rgl)
     rgl::plot3d(pc[,n],col = 1,pch = 20
     ,xlab=paste("PC",n[1]," (",pca$pval[n[1]]," %)",sep = "")
     ,ylab=paste("PC",n[2]," (",pca$pval[n[2]]," %)",sep = "")

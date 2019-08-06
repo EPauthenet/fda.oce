@@ -27,7 +27,7 @@ reco <- function(pca,pc,Ntrunc){
     d = ((k-1)*nbas+1):(k*nbas)
     coef[,,k] = matrix(rep(pca$Cm[d],nobs),nbas,nobs) + pca$vectors[d,1:Ntrunc] %*% t(pc[,1:Ntrunc])
   }
-    fdobj_reco <<- fd(coef,pca$basis,pca$fdnames)
+    fdobj_reco <<- fda::fd(coef,pca$basis,pca$fdnames)
 }
 
 
