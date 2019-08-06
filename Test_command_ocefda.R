@@ -2,10 +2,9 @@ library(devtools)
 devtools::install_github("Epauthenet/fda.oce")
 ###########################
 
-install.packages("roxygen2")
-install.packages("devtools")
+#install.packages("roxygen2")
+#install.packages("devtools")
 library(roxygen2)
-library(devtools)
 has_devel()
 
 devtools::document("~/Documents/R/fda.oce")
@@ -37,18 +36,19 @@ Pi = as.numeric(depth)
 
 
 
-oce.fda::bspl(Pi,Xi)
+load("GLORYS_SO_2015-12.RData")
+fda.oce::bspl(Pi,Xi)
 
 #
-fpca(fdobj,plot = T,plot3d = T)
-pc = proj(fdobj,pca)
+fpca(fdobj)
+proj(fdobj,pca)
 reco(pca,pc,3)
 
 i = 1201
 data = eval.fd(Pi,fdobj)
 data_reco = eval.fd(Pi,fdobj_reco)
 par(mfrow = c(1,2))
-for(d in 1:ndim){
+for(d in 1:2){
   plot(Xi[,i,d],Pi,las = 1,ylim = c(1000,0),cex = .2,col = 1)
   points(data[,i,d],Pi,typ = 'l',col = 2)
   points(data_reco[,i,d],Pi,las = 1,ylim = c(1000,0),typ = 'l',col = 3)
