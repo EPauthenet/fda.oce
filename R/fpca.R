@@ -43,23 +43,13 @@ fpca <-function(fdobj){
   }
 
   #Metric W
-  nul <- matrix(0,nbas,nbas)
-  if(ndim==1){
-    W=metric
+  W <- matrix(0, nbas*ndim, nbas*ndim)
+  for (i in 1:ndim){
+    i0              <- i*nbas - nbas + 1
+    i1              <- i*nbas
+    W[i0:i1, i0:i1] <- metric
   }
-  if(ndim==2){
-    W <- cbind(rbind(metric,nul),rbind(nul,metric))
-  }
-  if(ndim==3){
-    W <- cbind(rbind(metric,nul,nul,nul),rbind(nul,metric,nul),rbind(nul,nul,metric))
-  }
-  if(ndim==4){
-    W <- cbind(rbind(metric,nul,nul,nul),rbind(nul,metric,nul,nul),rbind(nul,nul,metric,nul),rbind(nul,nul,nul,metric))
-  }
-  if(ndim==5){
-    W <- cbind(rbind(metric,nul,nul,nul,nul),rbind(nul,metric,nul,nul,nul),rbind(nul,nul,metric,nul,nul),rbind(nul,nul,nul,metric,nul),rbind(nul,nul,nul,nul,metric))
-  }
-  W       <- (W+t(W))/2
+  W       <- (W + t(W))/2
   Wdem    <- chol(W)
   Wdeminv <- solve(Wdem)
 
