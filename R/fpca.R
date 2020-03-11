@@ -34,20 +34,40 @@ fpca <-function(fdobj){
   Cc <- sweep(C,2,Cm,"-")
 
   #Inertia
-  VT     <- 1/nobs*t(Cc[,1:nbas])%*%Cc[,1:nbas]%*%metric
-  inerT  <- sum(diag(VT))
-  VS     <- 1/nobs*t(Cc[,(nbas+1):(2*nbas)])%*%Cc[,(nbas+1):(2*nbas)]%*%metric
-  inerS  <- sum(diag(VS))
+  iner = NULL
+  V        <- 1/nobs*t(Cc[,1:nbas])%*%Cc[,1:nbas]%*%metric
+  iner[1]  <- sum(diag(V))
+  for(n in 2:ndim){
+    V           <- 1/nobs*t(Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)])%*%Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)]%*%metric
+    iner[n]  <- sum(diag(V))
+  }
 
   #Metric W
+  if(ndim==1){
+    W=metric
+  }
+  if(ndim==2){
+    W <- cbind(rbind(metric,nul),rbind(nul,metric))
+  }
+  if(ndim==3){
+    W <- cbind(rbind(metric,nul,nul,nul),rbind(nul,metric,nul),rbind(nul,nul,metric))
+  }
+  if(ndim==4){
+    W <- cbind(rbind(metric,nul,nul,nul),rbind(nul,metric,nul,nul),rbind(nul,nul,metric,nul),rbind(nul,nul,nul,metric))
+  }
+  if(ndim==5){
+    W <- cbind(rbind(metric,nul,nul,nul,nul),rbind(nul,metric,nul,nul,nul),rbind(nul,nul,metric,nul,nul),rbind(nul,nul,nul,metric,nul),rbind(nul,nul,nul,nul,metric))
+  }
   nul     <- matrix(0,nbas,nbas)
-  W       <- cbind(rbind(metric,nul),rbind(nul,metric))
   W       <- (W+t(W))/2
   Wdem    <- chol(W)
   Wdeminv <- solve(Wdem)
 
   #Metric M
-  M       <- c(rep(1/inerT,nbas),rep(1/inerS,nbas))
+  M <- rep(1/iner[1],nbas)
+  for(n in 2:ndim){
+    M <- c(M,rep(1/iner[n],nbas))
+  }
   Mdem    <- diag(sqrt(M))
   Mdeminv <- diag(1/sqrt(M))
   M       <- Mdem^2
@@ -71,8 +91,7 @@ fpca <-function(fdobj){
   pca$pval <- Re(round(pca$values/sum(pca$values)*100,2))
 
   ###Store the inertia and the mean profile in the list pca, to be used for projection (proj)
-  pca$inerT <- inerT
-  pca$inerS <- inerS
+  pca$iner <- iner
   pca$Cm    <- Cm
 
   pca$basis = basis
