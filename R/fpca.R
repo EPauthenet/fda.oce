@@ -38,11 +38,12 @@ fpca <-function(fdobj){
   V        <- 1/nobs*t(Cc[,1:nbas])%*%Cc[,1:nbas]%*%metric
   iner[1]  <- sum(diag(V))
   for(n in 2:ndim){
-    V           <- 1/nobs*t(Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)])%*%Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)]%*%metric
+    V        <- 1/nobs*t(Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)])%*%Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)]%*%metric
     iner[n]  <- sum(diag(V))
   }
 
   #Metric W
+  nul <- matrix(0,nbas,nbas)
   if(ndim==1){
     W=metric
   }
@@ -58,7 +59,6 @@ fpca <-function(fdobj){
   if(ndim==5){
     W <- cbind(rbind(metric,nul,nul,nul,nul),rbind(nul,metric,nul,nul,nul),rbind(nul,nul,metric,nul,nul),rbind(nul,nul,nul,metric,nul),rbind(nul,nul,nul,nul,metric))
   }
-  nul     <- matrix(0,nbas,nbas)
   W       <- (W+t(W))/2
   Wdem    <- chol(W)
   Wdeminv <- solve(Wdem)
