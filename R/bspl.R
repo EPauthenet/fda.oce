@@ -28,6 +28,6 @@ bspl <- function(Pi,Xi,nbas = 20,fdn = list('Temperature','Salinity')){
 
   fdobj <<- fda::Data2fd(argvals = Pi,y = Xi,basisobj = basis,fdnames = fdnames)
 
-  cat(paste(dim(fdobj$coefs)[2],"B-splines computed for",dim(fdobj$coefs)[3],"variables."))
+  cat(paste(dim(Xi)[2],"B-splines computed for",dim(Xi)[3],"variables."))
 }
 

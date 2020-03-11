@@ -8,6 +8,7 @@ library(roxygen2)
 has_devel()
 
 devtools::document("~/Documents/R/fda.oce")
+library(fda.oce)
 
 #
 #DONE
@@ -37,12 +38,16 @@ Pi = as.numeric(depth)
 
 
 load("GLORYS_SO_2015-12.RData")
-fda.oce::bspl(Pi,Xi)
+#test more than 2 variables
+#library(abind)
+Xi2 = abind(Xi,Xi,along = 3)
+fda.oce::bspl(Pi,Xi2)
+#fda.oce::bspl(Pi,Xi)
 
 #
 fpca(fdobj)
 proj(fdobj,pca)
-reco(pca,pc,3)
+reco(pca,pc,10)
 
 i = 1201
 data = eval.fd(Pi,fdobj)

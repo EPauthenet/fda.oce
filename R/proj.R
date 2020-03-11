@@ -36,7 +36,6 @@ proj <- function(fdobj,pca){
   if(Verif3>10^-10){
     cat("Warning : The eigen values are not equivalent to the PC norm.")
   }
-
 }
 
 
