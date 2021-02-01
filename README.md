@@ -5,7 +5,7 @@
 **Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical hydrographic profiles of several variables (temperature, salinity, oxygen,...) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case to reduce the dimensionality of the system. The classical case is done with couples of temperature and salinity. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ...
 
 *Authors*:
-Etienne Pauthenet (etienne.pauthenet@locean-ipsl.upmc.fr), David Nerini (david.nerini@univ-amu.fr), Fabien Roquet (fabien.roquet@gu.se)
+Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini@univ-amu.fr), Fabien Roquet (fabien.roquet@gu.se)
 
 *References*: 
 - Pauthenet et al. (2019) The thermohaline modes of the global ocean. Journal of Physical Oceanography, [10.1175/JPO-D-19-0120.1](https://doi.org/10.1175/JPO-D-19-0120.1)
