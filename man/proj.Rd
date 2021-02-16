@@ -18,7 +18,7 @@ proj(fdobj, pca)
 Projection of hydrographic profiles on a chosen basis (created with \code{fpca}). It is essential to locate a profile relatively to a climatology. The profiles to project must have the same \code{basis} than the modes to project on (i.e. same length of profile \code{c(dmin,dmax)} and same number of Bsplines \code{nbasis}).
 }
 \references{
-Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, http://dx.doi.org/10.1175/JPO-D-16-0083.1
+Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, https://doi.org/10.1175/JPO-D-16-0083.1
 
 Ramsay, J. O., and B. W. Silverman, 2005: Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 }
