@@ -22,7 +22,10 @@ proj <- function(fdobj,pca){
   coef  = fdobj$coefs
   Cm    = pca$Cm
   nobs  = dim(coef)[2]
-  ndim   = dim(coef)[3]
+  if(length(dim(coef)) > 2){
+    ndim   = dim(coef)[3]}else{
+    ndim = 1
+    dim(fdobj$coefs) = c(dim(fdobj$coefs),1)}
 
   C = NULL
   for(k in 1:ndim){
