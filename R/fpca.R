@@ -17,6 +17,7 @@
 
 #' @export
 fpca <-function(fdobj){
+  dim(fdobj$coefs) = c(dim(fdobj$coefs),1)
   coef  = fdobj$coefs
   basis = fdobj$basis
   metric = fda::eval.penalty(basis)
