@@ -25,8 +25,10 @@ bspl <- function(Pi,Xi,nbas = 20,fdn = list('Temperature','Salinity')){
   prange = c(Pi[1],Pi[length(Pi)])
   Breaks=prange[1]+(prange[2]-prange[1])*tan(seq(0,1,1/(nbas-3)))/tan(1)
   basis = fda::create.bspline.basis(rangeval = prange,nbasis = nbas,norder = 4,breaks = Breaks)
-
-  fdobj <<- fda::Data2fd(argvals = Pi,y = Xi,basisobj = basis,fdnames = fdnames)
+  fdobj = fda::Data2fd(argvals = Pi,y = Xi,basisobj = basis,fdnames = fdnames)
+  if(length(dim(fdobj)) == 2){
+    dim(fdobj) = c(dim(fdobj),1)}
+  fdobj <<- fdobj
 
   cat(paste(dim(Xi)[2],"B-splines computed for",dim(Xi)[3],"variables."))
 }
