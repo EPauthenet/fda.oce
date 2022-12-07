@@ -23,10 +23,7 @@ fpca <-function(fdobj){
   metric = fda::eval.penalty(basis)
   nbas   = basis$nbasis
   nobs   = dim(coef)[2]
-  if(length(dim(coef)) > 2){
-  ndim   = dim(coef)[3]}else{
-    ndim = 1
-    dim(fdobj$coefs) = c(dim(fdobj$coefs),1)}
+  ndim   = dim(coef)[3]
   prange = basis$rangeval
   depth  = prange[1]:prange[2]
 
