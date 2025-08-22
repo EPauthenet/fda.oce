@@ -18,6 +18,7 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Djian et al. (2025) Hydrologic regionalisation from Crozet to Kerguelen and subtropical Southern Indian Ocean. CCAMLR Science.
 - Doriot et al. (2025) Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
 - Izard et al. (2024) Decomposing acoustic signal reveals the pelagic response to a frontal system. Journal of Marine Systems.
+- Fonvieille et al. (2023) Swimming in an ocean of curves: A functional approach to understanding elephant seal habitat use in the Argentine Basin. Progress in Oceanography.
 - Ariza et al. (2023) Acoustic seascape partitioning through functional data analysis. Journal of Biogeography.
 - Cotté et al. (2022) Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems.
 - Ariza et al. (2022) Global decline of pelagic fauna in a warmer ocean. Nature Climate Change.
