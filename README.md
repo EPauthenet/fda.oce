@@ -12,24 +12,15 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Ramsay, J. O., and B. W. Silverman, (2005) Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 
 *Publications directly using this work for fronts identification, vertical structure decomposition...*: 
-- Doriot et al. (2025)
-Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
-- Ariza et al. (2023)  
-Acoustic seascape partitioning through functional data analysis. Journal of Biogeography, 50(9), 1546-1560.
-- Cotté et al. (2022)  
-Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
-- Ariza et al. (2022)  
-Global decline of pelagic fauna in a warmer ocean. Nature Climate Change, 12(10), 928-934.
-- Christaki et al (2021)    
-Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
-- Kolbe et al. (2021)
-Impact of thermohaline variability on sea level changes in the Southern Ocean. Journal of Geophysical Research: Oceans, 126(9), e2021JC017381.
-- Lafond et al.(2020)  
-The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
-- Pauthenet et al. (2019)  
-The thermohaline modes of the global ocean. Journal of Physical Oceanography, [10.1175/JPO-D-19-0120.1](https://doi.org/10.1175/JPO-D-19-0120.1)
-- Pauthenet et al. (2018)  
-Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters, [10.1029/2018GL079614](https://doi.org/10.1029/2018GL079614)
+- Doriot et al. (2025) Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
+- Ariza et al. (2023) Acoustic seascape partitioning through functional data analysis. Journal of Biogeography, 50(9), 1546-1560.
+- Cotté et al. (2022) Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
+- Ariza et al. (2022) Global decline of pelagic fauna in a warmer ocean. Nature Climate Change, 12(10), 928-934.
+- Christaki et al (2021) Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
+- Kolbe et al. (2021) Impact of thermohaline variability on sea level changes in the Southern Ocean. Journal of Geophysical Research: Oceans, 126(9), e2021JC017381.
+- Lafond et al.(2020) The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
+- Pauthenet et al. (2019) The thermohaline modes of the global ocean. Journal of Physical Oceanography, [10.1175/JPO-D-19-0120.1](https://doi.org/10.1175/JPO-D-19-0120.1)
+- Pauthenet et al. (2018) Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters, [10.1029/2018GL079614](https://doi.org/10.1029/2018GL079614)
 
 # Installation
 Installation of the package using devtools :
