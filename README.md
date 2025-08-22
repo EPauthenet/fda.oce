@@ -19,8 +19,8 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Christaki et al (2021) Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
 - Kolbe et al. (2021) Impact of thermohaline variability on sea level changes in the Southern Ocean. Journal of Geophysical Research: Oceans, 126(9), e2021JC017381.
 - Lafond et al.(2020) The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
-- Pauthenet et al. (2019) The thermohaline modes of the global ocean. Journal of Physical Oceanography, [10.1175/JPO-D-19-0120.1](https://doi.org/10.1175/JPO-D-19-0120.1)
-- Pauthenet et al. (2018) Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters, [10.1029/2018GL079614](https://doi.org/10.1029/2018GL079614)
+- Pauthenet et al. (2019) The thermohaline modes of the global ocean. Journal of Physical Oceanography.
+- Pauthenet et al. (2018) Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters.
 
 # Installation
 Installation of the package using devtools :
