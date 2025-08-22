@@ -13,11 +13,15 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Pauthenet et al. (2017) A linear decomposition of the Southern Ocean thermohaline structure. Journal of Physical Oceanography, [10.1175/JPO-D-16-0083.1](http://dx.doi.org/10.1175/JPO-D-16-0083.1)
 - Ramsay, J. O., and B. W. Silverman, (2005) Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 
-*Publications directly using this work*: 
-- Doriot, V., Roquet, F., Nerini, D., Caneill, R., Picard, B., & Guinet, C. (2025). Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
-- Cotté, C., Ariza, A., Berne, A., Habasque, J., Lebourges-Dhaussy, A., Roudaut, G., ... & Cherel, Y. (2022). Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
-- Christaki, U., Gueneugues, A., Liu, Y., Blain, S., Catala, P., Colombet, J., ... & Obernosterer, I. (2021). Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
-- Lafond, A., Leblanc, K., Legras, J., Cornet, V., & Quéguiner, B. (2020). The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
+*Publications directly using this work for fronts identification, vertical structure decomposition...*: 
+- Doriot, V., Roquet, F., Nerini, D., Caneill, R., Picard, B., & Guinet, C. (2025).  
+  Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
+- Cotté, C., Ariza, A., Berne, A., Habasque, J., Lebourges-Dhaussy, A., Roudaut, G., ... & Cherel, Y. (2022).  
+  Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
+- Christaki, U., Gueneugues, A., Liu, Y., Blain, S., Catala, P., Colombet, J., ... & Obernosterer, I. (2021).  
+  Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
+- Lafond, A., Leblanc, K., Legras, J., Cornet, V., & Quéguiner, B. (2020).  
+  The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
 
 
 Installation of the package using devtools :
