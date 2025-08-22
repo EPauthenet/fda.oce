@@ -12,7 +12,12 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Ramsay, J. O., and B. W. Silverman, (2005) Functional Data Analysis. 2nd Edition Springer, 426 pp., Isbn : 038740080X.
 
 *Publications directly using this work for fronts identification, vertical structure decomposition...*: 
+- Merland et al. (2025) Macrozooplankton from Crozet to Kerguelen and Subtropical Southern Indian Ocean. CCAMLR Science.
+- Merland et al (2025) Physical and biogeochemical regionalisations and climate velocities in the epipelagic and mesopelagic Southern Indian Ocean. CCAMLR Science.
+- Djian et al. (2025) Species assemblages of key prey taxa from the Southern Ocean and the Southern Indian Ocean using biogeographic networks. CCAMLR Science.
+- Djian et al. (2025) Hydrologic regionalisation from Crozet to Kerguelen and subtropical Southern Indian Ocean. CCAMLR Science.
 - Doriot et al. (2025) Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
+- Izard et al. (2024) Decomposing acoustic signal reveals the pelagic response to a frontal system. Journal of Marine Systems.
 - Ariza et al. (2023) Acoustic seascape partitioning through functional data analysis. Journal of Biogeography.
 - Cotté et al. (2022) Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems.
 - Ariza et al. (2022) Global decline of pelagic fauna in a warmer ocean. Nature Climate Change.
