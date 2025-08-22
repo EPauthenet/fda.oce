@@ -20,6 +20,7 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Ariza et al. (2023) Acoustic seascape partitioning through functional data analysis. Journal of Biogeography.
 - Cotté et al. (2022) Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems.
 - Ariza et al. (2022) Global decline of pelagic fauna in a warmer ocean. Nature Climate Change.
+- Thomas et al (2021) Defining Southern Ocean fronts using unsupervised classification, Ocean Science.
 - Christaki et al (2021) Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography.
 - Kolbe et al. (2021) Impact of thermohaline variability on sea level changes in the Southern Ocean. Journal of Geophysical Research: Oceans.
 - Pauthenet et al (2021) Seasonal variation of the Antarctic Slope Front occurrence and position estimated from an interpolated hydrographic climatology. Journal of Physical Oceanography.
