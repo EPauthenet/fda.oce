@@ -15,14 +15,17 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 
 *Publications directly using this work for fronts identification, vertical structure decomposition...*: 
 - Doriot, V., Roquet, F., Nerini, D., Caneill, R., Picard, B., & Guinet, C. (2025).  
-  Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
+Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Plateau. Authorea Preprints.
+- Ariza, A., Lebourges‐Dhaussy, A., Nerini, D., Pauthenet, E., Roudaut, G., Assunção, R., ... & Bertrand, A. (2023).  
+Acoustic seascape partitioning through functional data analysis. Journal of Biogeography, 50(9), 1546-1560.
 - Cotté, C., Ariza, A., Berne, A., Habasque, J., Lebourges-Dhaussy, A., Roudaut, G., ... & Cherel, Y. (2022).  
-  Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
+Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
 - Christaki, U., Gueneugues, A., Liu, Y., Blain, S., Catala, P., Colombet, J., ... & Obernosterer, I. (2021).  
-  Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
+Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
+- Kolbe, M., Roquet, F., Pauthenet, E., & Nerini, D. (2021).
+Impact of thermohaline variability on sea level changes in the Southern Ocean. Journal of Geophysical Research: Oceans, 126(9), e2021JC017381.
 - Lafond, A., Leblanc, K., Legras, J., Cornet, V., & Quéguiner, B. (2020).  
-  The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
-
+The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems, 212, 103458.
 
 Installation of the package using devtools :
 ``` r
