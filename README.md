@@ -20,6 +20,8 @@ Distribution and recent trends of the Mixed Layer Depth around the Kerguelen Pla
 Acoustic seascape partitioning through functional data analysis. Journal of Biogeography, 50(9), 1546-1560.
 - Cotté, C., Ariza, A., Berne, A., Habasque, J., Lebourges-Dhaussy, A., Roudaut, G., ... & Cherel, Y. (2022).  
 Macrozooplankton and micronekton diversity and associated carbon vertical patterns and fluxes under distinct productive conditions around the Kerguelen Islands. Journal of Marine Systems, 226, 103650.
+- Ariza, A., Lengaigne, M., Menkes, C., Lebourges-Dhaussy, A., Receveur, A., Gorgues, T., ... & Bertrand, A. (2022).
+Global decline of pelagic fauna in a warmer ocean. Nature Climate Change, 12(10), 928-934.
 - Christaki, U., Gueneugues, A., Liu, Y., Blain, S., Catala, P., Colombet, J., ... & Obernosterer, I. (2021).  
 Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography, 66(1), 108-122.
 - Kolbe, M., Roquet, F., Pauthenet, E., & Nerini, D. (2021).
