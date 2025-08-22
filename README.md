@@ -22,6 +22,7 @@ Etienne Pauthenet (etienne.pauthenet@locean.ipsl.fr), David Nerini (david.nerini
 - Ariza et al. (2022) Global decline of pelagic fauna in a warmer ocean. Nature Climate Change.
 - Christaki et al (2021) Seasonal microbial food web dynamics in contrasting Southern Ocean productivity regimes. Limnology and Oceanography.
 - Kolbe et al. (2021) Impact of thermohaline variability on sea level changes in the Southern Ocean. Journal of Geophysical Research: Oceans.
+- Pauthenet et al (2021) Seasonal variation of the Antarctic Slope Front occurrence and position estimated from an interpolated hydrographic climatology. Journal of Physical Oceanography.
 - Lafond et al.(2020) The structure of diatom communities constrains biogeochemical properties in surface waters of the Southern Ocean (Kerguelen Plateau). Journal of Marine Systems.
 - Pauthenet et al. (2019) The thermohaline modes of the global ocean. Journal of Physical Oceanography.
 - Pauthenet et al. (2018) Seasonal meandering of the Polar Front upstream of the Kerguelen Plateau. Geophysical Research Letters.
