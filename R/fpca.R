@@ -17,6 +17,7 @@
 
 #' @export
 fpca <-function(fdobj){
+  
   coef  = fdobj$coefs
   basis = fdobj$basis
   metric = fda::eval.penalty(basis)
@@ -37,10 +38,12 @@ fpca <-function(fdobj){
   iner = NULL
   V        <- 1/nobs*t(Cc[,1:nbas])%*%Cc[,1:nbas]%*%metric
   iner[1]  <- sum(diag(V))
-  for(n in 2:ndim){
-    V        <- 1/nobs*t(Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)])%*%Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)]%*%metric
-    iner[n]  <- sum(diag(V))
-  }
+  if(ndim > 1){
+    for(n in 2:ndim){
+      V        <- 1/nobs*t(Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)])%*%Cc[,(nbas*(n-1)+1):(nbas*(n-1)+nbas)]%*%metric
+      iner[n]  <- sum(diag(V))
+    }
+   }
 
   #Metric W
   W <- matrix(0, nbas*ndim, nbas*ndim)
@@ -55,9 +58,11 @@ fpca <-function(fdobj){
 
   #Metric M
   M <- rep(1/iner[1],nbas)
-  for(n in 2:ndim){
-    M <- c(M,rep(1/iner[n],nbas))
-  }
+  if(ndim > 1){
+    for(n in 2:ndim){
+      M <- c(M,rep(1/iner[n],nbas))
+    }
+   }
   Mdem    <- diag(sqrt(M))
   Mdeminv <- diag(1/sqrt(M))
   M       <- Mdem^2
